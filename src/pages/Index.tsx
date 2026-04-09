@@ -48,7 +48,7 @@ function HealthScoreRing({ score }: { score: number }) {
         >
           {score}
         </motion.span>
-        <span className="text-xs text-muted-foreground">Health Score</span>
+  <span className="text-xs text-muted-foreground">Longevity Score</span>
       </div>
     </div>
   );
@@ -108,9 +108,34 @@ export default function Dashboard() {
 
   const healthScore = profile?.profile?.health_score || 82;
 
-  const metricsWithProfile = metrics.map((m) =>
-    m.label === "Steps" ? { ...m, value: profile?.profile?.steps || m.value } : m
-  );
+  const metricsWithProfile = metrics.map((m) => {
+    if (m.label === "Steps") {
+      return {
+        ...m,
+        value: profile?.profile?.wearable_summary?.avg_steps
+          ? Math.round(profile.profile.wearable_summary.avg_steps).toLocaleString()
+          : "8,432",
+      };
+    }
+    if (m.label === "Heart Rate") {
+      return {
+        ...m,
+        value: profile?.profile?.wearable_summary?.avg_resting_hr
+          ? Math.round(profile.profile.wearable_summary.avg_resting_hr).toString()
+          : "72",
+      };
+    }
+    if (m.label === "Water") {
+      return {
+        ...m,
+        value:
+          profile?.profile?.manual_entries?.lifestyle?.manual_water_glasses_daily ??
+          profile?.profile?.lifestyle?.water_glasses_daily ??
+          "6",
+      };
+    }
+    return m;
+  });
 
   return (
     <div className="p-6 max-w-6xl mx-auto space-y-6">
@@ -119,11 +144,7 @@ export default function Dashboard() {
         <p className="text-muted-foreground text-sm mt-1">Here's your health overview for today</p>
       </div>
 
-      {profile && (
-        <pre className="text-xs">
-          {JSON.stringify(profile, null, 2)}
-        </pre>
-      )}
+      
 
       {/* Top row: Health Score + Quick Actions */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -134,33 +155,31 @@ export default function Dashboard() {
 
         <Card className="md:col-span-2">
           <CardHeader className="pb-3">
-            <CardTitle className="text-base">Quick Actions</CardTitle>
+            <CardTitle className="text-base">Longevity Plan</CardTitle>
           </CardHeader>
-          <CardContent className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <Button
-              variant="outline"
-              className="h-auto py-4 flex flex-col items-center gap-2 hover:bg-primary/5 hover:border-primary/30"
-              onClick={() => navigate("/coach")}
-            >
-              <Bot className="h-5 w-5 text-primary" />
-              <span className="text-sm">Talk to Coach</span>
-            </Button>
-            <Button
-              variant="outline"
-              className="h-auto py-4 flex flex-col items-center gap-2 hover:bg-primary/5 hover:border-primary/30"
-              onClick={() => navigate("/appointments")}
-            >
-              <CalendarClock className="h-5 w-5 text-primary" />
-              <span className="text-sm">Book Appointment</span>
-            </Button>
-            <Button
-              variant="outline"
-              className="h-auto py-4 flex flex-col items-center gap-2 hover:bg-primary/5 hover:border-primary/30"
-              onClick={() => navigate("/shop")}
-            >
-              <ShoppingBag className="h-5 w-5 text-primary" />
-              <span className="text-sm">Health Shop</span>
-            </Button>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="p-4 border rounded-lg">
+                <p className="font-medium">🧠 Stress Optimization</p>
+                <p className="text-sm text-muted-foreground">
+                  Try a 10-minute mindfulness session today to reduce stress levels.
+                </p>
+              </div>
+
+              <div className="p-4 border rounded-lg">
+                <p className="font-medium">🏃 Activity Boost</p>
+                <p className="text-sm text-muted-foreground">
+                  Increase your daily steps by 1,000 to improve cardiovascular health.
+                </p>
+              </div>
+
+              <div className="p-4 border rounded-lg">
+                <p className="font-medium">💧 Hydration Goal</p>
+                <p className="text-sm text-muted-foreground">
+                  Aim for 8 glasses of water today to support metabolism and energy.
+                </p>
+              </div>
+            </div>
           </CardContent>
         </Card>
       </div>
@@ -192,7 +211,7 @@ export default function Dashboard() {
                   <div className="mt-2 h-1.5 bg-muted rounded-full overflow-hidden">
                     <div
                       className="h-full bg-primary rounded-full"
-                      style={{ width: `${(parseInt(m.value.replace(",", "")) / parseInt(m.target.replace(",", ""))) * 100}%` }}
+                      style={{ width: `${(parseInt(String(m.value).replace(",", "")) / parseInt(m.target.replace(",", ""))) * 100}%` }}
                     />
                   </div>
                 )}
@@ -206,7 +225,7 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card>
           <CardHeader className="pb-3">
-            <CardTitle className="text-base">Weekly Trends</CardTitle>
+            <CardTitle className="text-base">Weekly Progress</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="flex items-end gap-3">

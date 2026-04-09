@@ -238,14 +238,14 @@ def build_unified_profile(
             "egfr_ml_min": clean_value(ehr_row.get("egfr_ml_min"))
         },
         "wearable_summary": {
-            "avg_steps": clean_value(wear_summary_row.get("avg_steps")),
-            "avg_resting_hr": clean_value(wear_summary_row.get("avg_resting_hr")),
-            "avg_sleep_duration": clean_value(wear_summary_row.get("avg_sleep_duration")),
-            "avg_spo2": clean_value(wear_summary_row.get("avg_spo2")),
-            "avg_calories_burned": clean_value(wear_summary_row.get("avg_calories_burned")),
-            "avg_hrv_rmssd": clean_value(wear_summary_row.get("avg_hrv_rmssd")),
-            "avg_active_minutes": clean_value(wear_summary_row.get("avg_active_minutes")),
-            "avg_sleep_quality": clean_value(wear_summary_row.get("avg_sleep_quality"))
+            "avg_steps": clean_value(wear_summary_row.get("steps")),
+            "avg_resting_hr": clean_value(wear_summary_row.get("resting_hr_bpm")),
+            "avg_sleep_duration": clean_value(wear_summary_row.get("sleep_duration_hrs")),
+            "avg_spo2": clean_value(wear_summary_row.get("spo2_avg_pct")),
+            "avg_calories_burned": clean_value(wear_summary_row.get("calories_burned_kcal")),
+            "avg_hrv_rmssd": clean_value(wear_summary_row.get("hrv_rmssd_ms")),
+            "avg_active_minutes": clean_value(wear_summary_row.get("active_minutes")),
+            "avg_sleep_quality": clean_value(wear_summary_row.get("sleep_quality_score"))
         },
         "lifestyle": {
             "survey_date": clean_value(life_row.get("survey_date")),

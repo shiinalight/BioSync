@@ -132,7 +132,7 @@ const handleGenerateProfile = async () => {
     <div className="p-6 max-w-7xl mx-auto space-y-6">
       <div>
         <h1 className="text-2xl font-semibold text-foreground tracking-tight">
-          Unified Health Profile Builder
+          Profile Data
         </h1>
         <p className="text-muted-foreground mt-1">
           Upload structured health data, add manual entries, and attach external documents into a unified profile.
@@ -150,9 +150,9 @@ const handleGenerateProfile = async () => {
           </CardHeader>
           <CardContent className="space-y-5">
             {([
-              { key: "ehrCSV" as const, label: "EHR CSV", accept: ".csv", icon: FileText },
-              { key: "wearableCSV" as const, label: "Wearable CSV", accept: ".csv", icon: Activity },
-              { key: "lifestyleCSV" as const, label: "Lifestyle CSV", accept: ".csv", icon: Heart },
+              { key: "ehrCSV" as const, label: "EHR", accept: ".csv", icon: FileText },
+              { key: "wearableCSV" as const, label: "Wearable", accept: ".csv", icon: Activity },
+              { key: "lifestyleCSV" as const, label: "Lifestyle", accept: ".csv", icon: Heart },
               { key: "externalPDF" as const, label: "External PDF Document", accept: ".pdf", icon: FileText },
             ]).map(({ key, label, accept, icon: Icon }) => (
               <div key={key} className="space-y-1.5">
@@ -301,10 +301,7 @@ const handleGenerateProfile = async () => {
 
       <div className="flex gap-3">
         <Button onClick={handleGenerateProfile} className="px-6">
-          Generate Unified Profile
-        </Button>
-        <Button variant="outline" onClick={handleDownloadJSON} className="px-6">
-          Download JSON
+          Generate Analysis
         </Button>
       </div>
       {generatedProfile && (
