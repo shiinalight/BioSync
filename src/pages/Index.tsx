@@ -1,3 +1,5 @@
+
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -7,8 +9,7 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-const healthScore = 82;
-
+ 
 const metrics = [
   { label: "Steps", value: "8,432", target: "10,000", icon: Footprints, trend: "up" as const, change: "+12%", color: "text-primary" },
   { label: "Heart Rate", value: "72", unit: "bpm", icon: Heart, trend: "down" as const, change: "-3%", color: "text-red-500" },
@@ -87,6 +88,29 @@ const recentActivity = [
 
 export default function Dashboard() {
   const navigate = useNavigate();
+  const [profile, setProfile] = useState<any>(null);
+
+  useEffect(() => {
+    const loadProfile = () => {
+      const stored = localStorage.getItem("unifiedProfile");
+      if (stored) {
+        setProfile(JSON.parse(stored));
+      }
+    };
+
+    loadProfile();
+    window.addEventListener("focus", loadProfile);
+
+    return () => {
+      window.removeEventListener("focus", loadProfile);
+    };
+  }, []);
+
+  const healthScore = profile?.profile?.health_score || 82;
+
+  const metricsWithProfile = metrics.map((m) =>
+    m.label === "Steps" ? { ...m, value: profile?.profile?.steps || m.value } : m
+  );
 
   return (
     <div className="p-6 max-w-6xl mx-auto space-y-6">
@@ -94,6 +118,12 @@ export default function Dashboard() {
         <h1 className="text-2xl font-semibold text-foreground">Good morning, Jane 👋</h1>
         <p className="text-muted-foreground text-sm mt-1">Here's your health overview for today</p>
       </div>
+
+      {profile && (
+        <pre className="text-xs">
+          {JSON.stringify(profile, null, 2)}
+        </pre>
+      )}
 
       {/* Top row: Health Score + Quick Actions */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -137,7 +167,7 @@ export default function Dashboard() {
 
       {/* Metrics */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-        {metrics.map((m, i) => (
+  {metricsWithProfile.map((m, i) => (
           <motion.div
             key={m.label}
             initial={{ opacity: 0, y: 12 }}

@@ -33,7 +33,7 @@ export function AppSidebar() {
         {!collapsed && (
           <div className="px-4 pb-6">
             <h1 className="text-lg font-semibold text-foreground tracking-tight">
-              Health<span className="text-primary">Pulse</span>
+              Bio<span className="text-primary">Sync</span>
             </h1>
           </div>
         )}

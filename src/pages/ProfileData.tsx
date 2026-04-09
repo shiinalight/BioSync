@@ -52,17 +52,60 @@ export default function ProfileData() {
     externalPDF: null,
   });
 
+  const [generatedProfile, setGeneratedProfile] = useState<any>(null);
+
   const handleFileChange = (key: keyof FileUploads) => (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
     setFiles((prev) => ({ ...prev, [key]: file }));
   };
 
-  const handleGenerateProfile = () => {
+const handleGenerateProfile = async () => {
+  try {
+    const formData = new FormData();
+
+    if (files.ehrCSV) formData.append("ehr_file", files.ehrCSV);
+    if (files.wearableCSV) formData.append("wearable_file", files.wearableCSV);
+    if (files.lifestyleCSV) formData.append("lifestyle_file", files.lifestyleCSV);
+    if (files.externalPDF) formData.append("pdf_file", files.externalPDF);
+
+    formData.append("manual_sbp_mmhg", clinical.systolicBP);
+    formData.append("manual_dbp_mmhg", clinical.diastolicBP);
+    formData.append("manual_glucose_mmol", clinical.glucose);
+    formData.append("manual_notes", clinical.clinicalNotes);
+
+    formData.append("manual_water_glasses_daily", lifestyle.waterGlasses);
+    formData.append("manual_exercise_sessions_weekly", lifestyle.exerciseSessions);
+    formData.append("manual_stress_level", lifestyle.stressLevel);
+    formData.append("manual_diet_notes", lifestyle.dietNotes);
+
+    const response = await fetch("http://127.0.0.1:8001/generate-profile", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "Failed to generate profile");
+    }
+
+  console.log("Generated profile:", data);
+  localStorage.setItem("unifiedProfile", JSON.stringify(data));
+
     toast({
       title: "Profile Generated",
-      description: "Your unified health profile has been created successfully.",
+      description: "Backend successfully processed your data 🚀",
     });
-  };
+  } catch (error) {
+    console.error("Generate profile error:", error);
+
+    toast({
+      title: "Error",
+      description: error instanceof Error ? error.message : "Backend connection failed",
+      variant: "destructive",
+    });
+  }
+};
 
   const handleDownloadJSON = () => {
     const profile = {
@@ -264,6 +307,11 @@ export default function ProfileData() {
           Download JSON
         </Button>
       </div>
+      {generatedProfile && (
+        <pre className="mt-4 rounded-md border p-4 text-xs overflow-auto whitespace-pre-wrap">
+          {JSON.stringify(generatedProfile, null, 2)}
+        </pre>
+      )}
     </div>
   );
 }
