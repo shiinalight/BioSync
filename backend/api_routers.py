@@ -329,18 +329,58 @@ def bio_age(patient_id: Optional[str] = Query(None)):
 
 
 @router.get("/scores/all")
-def all_scores(patient_id: Optional[str] = Query(None)):
-    """All four scores joined for one or all patients."""
-    cv  = _cache["cv"].add_suffix("_cv").rename(columns={"patient_id_cv": "patient_id"})
-    ls  = _cache["lifestyle"].add_suffix("_ls").rename(columns={"patient_id_ls": "patient_id"})
-    sl  = _cache["sleep"].add_suffix("_sl").rename(columns={"patient_id_sl": "patient_id"})
-    ba  = _cache["bio_age"].add_suffix("_ba").rename(columns={"patient_id_ba": "patient_id"})
+def all_scores(patient_id: str = Query(..., description="Patient ID, e.g. PT0001")):
+    """All four scores for a single patient as a nested object."""
+    cv_df = _cache["cv"]
+    ls_df = _cache["lifestyle"]
+    sl_df = _cache["sleep"]
+    ba_df = _cache["bio_age"]
 
-    merged = cv.merge(ls, on="patient_id").merge(sl, on="patient_id").merge(ba, on="patient_id")
+    cv_row = cv_df[cv_df["patient_id"] == patient_id]
+    if cv_row.empty:
+        raise HTTPException(status_code=404, detail=f"Patient '{patient_id}' not found")
 
-    if patient_id:
-        row = merged[merged["patient_id"] == patient_id]
-        if row.empty:
-            raise HTTPException(status_code=404, detail=f"Patient '{patient_id}' not found")
-        return row.to_dict(orient="records")
-    return merged.to_dict(orient="records")
+    cv = cv_row.iloc[0]
+    ls = ls_df[ls_df["patient_id"] == patient_id].iloc[0]
+    sl = sl_df[sl_df["patient_id"] == patient_id].iloc[0]
+    ba = ba_df[ba_df["patient_id"] == patient_id].iloc[0]
+
+    cv_risk_pct    = float(cv["cvd_risk_10yr_pct"])
+    lifestyle_score = float(ls["lifestyle_score"])
+    sleep_score    = float(sl["sleep_recovery_score"])
+    bio_age_gap    = float(ba["bio_age_gap"])
+
+    cv_health_score = max(0.0, 100 - cv_risk_pct * 3)
+    bio_age_score   = max(0.0, 100 - abs(bio_age_gap) * 8)
+    overall = round((cv_health_score + lifestyle_score + sleep_score + bio_age_score) / 4, 1)
+
+    ls_sub_cols = [c for c in ls_df.columns if c.startswith("sub_")]
+    sl_sub_cols = [c for c in sl_df.columns if c.startswith("sub_")]
+
+    return {
+        "patient_id": patient_id,
+        "overall_score": overall,
+        "cv_risk": {
+            "cvd_risk_10yr_pct": cv_risk_pct,
+            "category": cv["cvd_risk_category"],
+        },
+        "lifestyle": {
+            "lifestyle_score": lifestyle_score,
+            "category": ls["lifestyle_category"],
+            "weakest_area": ls["weakest_area"],
+            "sub_scores": {c.replace("sub_", ""): round(float(ls[c]), 1) for c in ls_sub_cols},
+        },
+        "sleep": {
+            "sleep_recovery_score": sleep_score,
+            "category": sl["sleep_category"],
+            "sub_scores": {c.replace("sub_", ""): round(float(sl[c]), 1) for c in sl_sub_cols},
+            "sleep_apnea_flag": bool(sl["sleep_apnea_flag"]),
+            "chronic_sleep_debt": bool(sl["chronic_sleep_debt"]),
+        },
+        "bio_age": {
+            "biological_age": float(ba["biological_age"]),
+            "chronological_age": float(ba["age"]),
+            "bio_age_gap": bio_age_gap,
+            "interpretation": ba["interpretation"],
+        },
+    }

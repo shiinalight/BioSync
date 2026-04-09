@@ -75,6 +75,7 @@ export interface SleepResult {
 }
 
 export interface AllScoresResult {
+  patient_id: string;
   overall_score: number;
   bio_age: BioAgeResult;
   cv_risk: CvRiskResult;
