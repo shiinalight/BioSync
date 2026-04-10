@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Bot, Send, User, Sparkles } from "lucide-react";
+import { Bot, Send, User, Sparkles, Paperclip } from "lucide-react";
 
 interface Message {
   id: string;
@@ -13,9 +13,10 @@ interface Message {
 
 const suggestedPrompts = [
   "How can I improve my sleep?",
-  "Post-workout recovery tips",
+  "Explain my test results in sinmple language",
   "Help me manage stress",
   "What supplements should I take?",
+  "Book me an Appointment",
 ];
 
 const mockResponses: Record<string, string> = {
@@ -45,21 +46,28 @@ export default function AICoach() {
   ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [attachedFile, setAttachedFile] = useState<File | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isTyping]);
 
-  const sendMessage = (text: string) => {
-    if (!text.trim()) return;
-    const userMsg: Message = { id: Date.now().toString(), role: "user", content: text };
+  const sendMessage = (text: string, file?: File | null) => {
+    if (!text.trim() && !file) return;
+    let content = text || "";
+    if (file && file.name) {
+      content = content ? `${content}\n\n[Attachment: ${file.name}]` : `[Attachment: ${file.name}]`;
+    }
+    const userMsg: Message = { id: Date.now().toString(), role: "user", content };
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
+    setAttachedFile(null);
     setIsTyping(true);
 
     setTimeout(() => {
-      const response = getResponse(text);
+      const response = getResponse(text || "");
       setMessages((prev) => [
         ...prev,
         { id: (Date.now() + 1).toString(), role: "assistant", content: response },
@@ -67,6 +75,17 @@ export default function AICoach() {
       setIsTyping(false);
     }, 1200);
   };
+
+  const handleAttachClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const f = e.target.files?.[0] ?? null;
+    setAttachedFile(f);
+  };
+
+  const clearAttachment = () => setAttachedFile(null);
 
   return (
     <div className="flex flex-col h-[calc(100vh-3.5rem)]">
@@ -149,6 +168,7 @@ export default function AICoach() {
         </div>
       </div>
 
+      
       {/* Suggested prompts */}
       {messages.length <= 1 && (
         <div className="px-4 pb-2">
@@ -171,16 +191,36 @@ export default function AICoach() {
       {/* Input */}
       <div className="p-4 border-t border-border bg-card">
         <form
-          className="max-w-3xl mx-auto flex gap-2"
-          onSubmit={(e) => { e.preventDefault(); sendMessage(input); }}
+          className="max-w-3xl mx-auto flex gap-2 items-center"
+          onSubmit={(e) => { e.preventDefault(); sendMessage(input, attachedFile); }}
         >
+          <input
+            ref={fileInputRef}
+            type="file"
+            className="hidden"
+            onChange={handleFileChange}
+          />
+
+          <Button type="button" variant="ghost" size="icon" onClick={handleAttachClick}>
+            <Paperclip className="h-4 w-4" />
+          </Button>
+
+          {attachedFile && (
+            <div className="flex items-center gap-2 px-3 py-1 bg-muted rounded-full text-sm">
+              <span className="truncate max-w-xs">{attachedFile.name}</span>
+              <Button type="button" size="icon" variant="ghost" onClick={clearAttachment}>
+                ✕
+              </Button>
+            </div>
+          )}
+
           <Input
             placeholder="Ask your health coach..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
             className="flex-1"
           />
-          <Button type="submit" size="icon" disabled={!input.trim()}>
+          <Button type="submit" size="icon" disabled={!input.trim() && !attachedFile}>
             <Send className="h-4 w-4" />
           </Button>
         </form>
