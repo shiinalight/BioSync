@@ -345,7 +345,18 @@ async def chat(body: ChatRequest):
             body.patient_id, body.message, body.session_id
         )
     except Exception as exc:
-        raise HTTPException(status_code=500, detail=str(exc))
+        msg = str(exc)
+        if "429" in msg or "RESOURCE_EXHAUSTED" in msg:
+            raise HTTPException(
+                status_code=429,
+                detail="Gemini rate limit reached. Please wait a bit and retry (free tier is very limited).",
+            )
+        if "503" in msg or "UNAVAILABLE" in msg:
+            raise HTTPException(
+                status_code=503,
+                detail="Gemini is temporarily unavailable (high demand). Please retry in ~10–30 seconds.",
+            )
+        raise HTTPException(status_code=500, detail=msg)
     return {"response": response, "session_id": session_id}
 
 

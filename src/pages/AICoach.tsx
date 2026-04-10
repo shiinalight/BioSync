@@ -20,7 +20,7 @@ const suggestedPrompts = [
 ];
 
 const PATIENT_ID = "PT0001";
-const API_URL = "http://127.0.0.1:8000/api/chat";
+const API_URL = "http://127.0.0.1:8002/api/chat";
 
 export default function AICoach() {
   const [messages, setMessages] = useState<Message[]>([

@@ -50,9 +50,19 @@ from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from google.genai import types
 
-# Load .env and expose API_KEY as GOOGLE_API_KEY (required by Google ADK)
+# Load .env and ensure Google ADK can see GOOGLE_API_KEY.
+# We support either GOOGLE_API_KEY (preferred) or API_KEY (legacy).
 load_dotenv(Path(__file__).parent.parent / ".env")
-os.environ["GOOGLE_API_KEY"] = os.environ.get("API_KEY", "")
+if not os.getenv("GOOGLE_API_KEY"):
+    fallback = os.getenv("API_KEY")
+    if fallback:
+        os.environ["GOOGLE_API_KEY"] = fallback
+
+if not os.getenv("GOOGLE_API_KEY"):
+    raise RuntimeError(
+        "Missing Gemini API key. Set GOOGLE_API_KEY (preferred) or API_KEY in the environment "
+        "or in backend/ai-and-scores/.env"
+    )
 
 # ── Load pre-computed dimension results (once at import) ──────
 
