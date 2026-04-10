@@ -1,4 +1,4 @@
-import { LayoutDashboard, Bot, ShoppingBag, CalendarClock, User, ClipboardList } from "lucide-react";
+import { LayoutDashboard, Bot, ShoppingBag, CalendarClock, ClipboardList } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
 import {
@@ -15,11 +15,11 @@ import {
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 const navItems = [
+  { title: "Profile Data", url: "/profile-data", icon: ClipboardList },
   { title: "Dashboard", url: "/", icon: LayoutDashboard },
   { title: "AI Coach", url: "/coach", icon: Bot },
   { title: "Shop", url: "/shop", icon: ShoppingBag },
   { title: "Appointments", url: "/appointments", icon: CalendarClock },
-  { title: "Profile Data", url: "/profile-data", icon: ClipboardList },
 ];
 
 export function AppSidebar() {
