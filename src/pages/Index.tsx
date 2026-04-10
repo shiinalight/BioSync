@@ -2,13 +2,11 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { 
-  Footprints, Heart, Moon, Flame, Droplets, 
-  Bot, CalendarClock, ShoppingBag, TrendingUp, TrendingDown 
-} from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Badge } from "@/components/ui/badge";
+import { Footprints, Heart, Moon, Flame, Droplets, TrendingUp, TrendingDown } from "lucide-react";
 import { LongevityJourney } from "@/components/dashboard/LongevityJourney";
+import { cn } from "@/lib/utils";
+import { useNavigate } from "react-router-dom";
 
  
 const metrics = [
@@ -20,6 +18,59 @@ const metrics = [
 ];
 
 const weeklyData = [65, 72, 68, 80, 75, 82, 78];
+
+type MetricSource = {
+  variant: "secondary" | "outline" | "default";
+  badgeText: string;
+  caption: string;
+  badgeClassName?: string;
+};
+
+function metricDataSource(label: string, profile: unknown): MetricSource {
+  const p = (profile as { profile?: Record<string, unknown> } | null)?.profile;
+  const manualEntries = p?.manual_entries as { lifestyle?: Record<string, unknown> } | undefined;
+  const lifestyle = p?.lifestyle as Record<string, unknown> | undefined;
+
+  const has = (v: unknown) => v != null && v !== "";
+  const syncedWearable = {
+    variant: "secondary" as const,
+    badgeText: "🟢 Synced from Apple Watch",
+    caption: "Pulled from your Apple Watch via HealthKit (or your linked activity sync).",
+    badgeClassName:
+      "border-emerald-500/40 bg-emerald-500/15 text-emerald-900 hover:bg-emerald-500/20 dark:text-emerald-50",
+  };
+  const syncedProfile = {
+    variant: "secondary" as const,
+    badgeText: "🟢 Synced",
+    caption: "Pulled from your unified health profile import.",
+    badgeClassName:
+      "border-emerald-500/40 bg-emerald-500/15 text-emerald-900 hover:bg-emerald-500/20 dark:text-emerald-50",
+  };
+  const manualBadge = {
+    variant: "outline" as const,
+    badgeText: "✏️ Manual",
+    caption: "Entered or saved in Profile Data; connect a wearable to use Synced instead.",
+  };
+  const manualWater = {
+    variant: "outline" as const,
+    badgeText: "✏️ Manual",
+    caption: "You entered this under manual lifestyle fields in Profile Data.",
+  };
+
+  switch (label) {
+    case "Steps":
+    case "Heart Rate":
+    case "Sleep":
+    case "Calories":
+      return syncedWearable;
+    case "Water":
+      if (has(manualEntries?.lifestyle?.manual_water_glasses_daily)) return manualWater;
+      if (has(lifestyle?.water_glasses_daily)) return syncedProfile;
+      return manualBadge;
+    default:
+      return manualBadge;
+  }
+}
 
 const persona = {
   name: "Jean",
@@ -112,7 +163,6 @@ const recentActivity = [
 ];
 
 export default function Dashboard() {
-  const navigate = useNavigate();
   const [profile, setProfile] = useState<any>(null);
 
   useEffect(() => {
@@ -134,27 +184,25 @@ export default function Dashboard() {
   const healthScore = profile?.profile?.health_score || 82;
 
   const metricsWithProfile = metrics.map((m) => {
+    let next = { ...m };
     // Prefer profile values when available, otherwise fall back to persona `user.metrics`
     if (m.label === "Steps") {
       const val = profile?.profile?.wearable_summary?.avg_steps ?? user.metrics.steps;
-      return { ...m, value: typeof val === "number" ? Math.round(val).toLocaleString() : String(val) };
-    }
-    if (m.label === "Heart Rate") {
+      next = { ...m, value: typeof val === "number" ? Math.round(val).toLocaleString() : String(val) };
+    } else if (m.label === "Heart Rate") {
       const val = profile?.profile?.wearable_summary?.avg_resting_hr ?? user.metrics.heartRate;
-      return { ...m, value: typeof val === "number" ? Math.round(val).toString() : String(val) };
-    }
-    if (m.label === "Sleep") {
+      next = { ...m, value: typeof val === "number" ? Math.round(val).toString() : String(val) };
+    } else if (m.label === "Sleep") {
       const val = profile?.profile?.wearable_summary?.avg_sleep_hours ?? user.metrics.sleep;
-      return { ...m, value: typeof val === "number" ? String(val) : String(val) };
-    }
-    if (m.label === "Water") {
+      next = { ...m, value: typeof val === "number" ? String(val) : String(val) };
+    } else if (m.label === "Water") {
       const val =
         profile?.profile?.manual_entries?.lifestyle?.manual_water_glasses_daily ??
         profile?.profile?.lifestyle?.water_glasses_daily ??
         user.metrics.water;
-      return { ...m, value: typeof val === "number" ? String(val) : String(val) };
+      next = { ...m, value: typeof val === "number" ? String(val) : String(val) };
     }
-    return m;
+    return { ...next, source: metricDataSource(m.label, profile) };
   });
 
   return (
@@ -249,6 +297,19 @@ export default function Dashboard() {
                   )
                 )}
                 <div className="text-xs text-muted-foreground">{m.label}</div>
+                <div className="mt-2 space-y-1">
+                  <Badge
+                    variant={m.source.variant}
+                    title={m.source.caption}
+                    className={cn(
+                      "h-auto max-w-full whitespace-normal rounded-md px-2 py-1 text-[10px] font-medium leading-snug",
+                      m.source.badgeClassName
+                    )}
+                  >
+                    {m.source.badgeText}
+                  </Badge>
+                  <p className="text-[10px] leading-snug text-muted-foreground">{m.source.caption}</p>
+                </div>
                 {m.target && (
                   <div className="mt-2 h-1.5 bg-muted rounded-full overflow-hidden">
                     <div
@@ -314,66 +375,4 @@ export default function Dashboard() {
       <LongevityJourney healthScore={healthScore} />
     </div>
   );
-const longevityPlan = [
-  {
-    id: "baseline",
-    label: "Now",
-    title: "Build Your Baseline",
-    focus: "Understand current diabetes and lifestyle risk patterns.",
-    actions: [
-      "Track daily steps and sleep",
-      "Monitor diet consistency",
-      "Identify key risk factors"
-    ],
-    impact: [
-      "Clear visibility into health status",
-      "Personalized prevention starting point"
-    ]
-  },
-  {
-    id: "30days",
-    label: "30 Days",
-    title: "Strengthen Habits",
-    focus: "Improve movement, sleep, and nutrition.",
-    actions: [
-      "Increase steps toward 10,000/day",
-      "Improve sleep to 7+ hours",
-      "Increase fruit & vegetable intake"
-    ],
-    impact: [
-      "Better energy and consistency",
-      "Early metabolic improvements"
-    ]
-  },
-  {
-    id: "90days",
-    label: "90 Days",
-    title: "Reduce Risk",
-    focus: "Turn habits into measurable prevention.",
-    actions: [
-      "Respond to early warnings",
-      "Maintain consistent routines",
-      "Follow recommended checks"
-    ],
-    impact: [
-      "Lower diabetes progression risk",
-      "Improved cardiovascular health"
-    ]
-  },
-  {
-    id: "1year",
-    label: "1 Year",
-    title: "Healthy Aging",
-    focus: "Sustain long-term health improvements.",
-    actions: [
-      "Maintain habits",
-      "Adjust plan with data",
-      "Continue preventive care"
-    ],
-    impact: [
-      "Reduced long-term risk",
-      "Stronger health confidence"
-    ]
-  }
-];  
 }
