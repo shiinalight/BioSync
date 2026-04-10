@@ -21,6 +21,30 @@ const metrics = [
 
 const weeklyData = [65, 72, 68, 80, 75, 82, 78];
 
+const persona = {
+  name: "Jean",
+  age: 66,
+  conditions: ["Type 2 Diabetes", "Dyslipidemia"],
+
+  metrics: {
+    steps: 8452,
+    heartRate: 72,
+    sleep: 6.4,
+    sleepQuality: 62,
+    calories: 1840,
+    water: 12,
+  },
+
+  lifestyle: {
+    alcohol: 16,
+    fruitVeg: 2.6,
+    exercise: 3,
+    sedentary: 9.3,
+  }
+};
+
+const user = persona;
+
 function HealthScoreRing({ score }: { score: number }) {
   const circumference = 2 * Math.PI * 54;
   const offset = circumference - (score / 100) * circumference;
@@ -110,30 +134,25 @@ export default function Dashboard() {
   const healthScore = profile?.profile?.health_score || 82;
 
   const metricsWithProfile = metrics.map((m) => {
+    // Prefer profile values when available, otherwise fall back to persona `user.metrics`
     if (m.label === "Steps") {
-      return {
-        ...m,
-        value: profile?.profile?.wearable_summary?.avg_steps
-          ? Math.round(profile.profile.wearable_summary.avg_steps).toLocaleString()
-          : "8,432",
-      };
+      const val = profile?.profile?.wearable_summary?.avg_steps ?? user.metrics.steps;
+      return { ...m, value: typeof val === "number" ? Math.round(val).toLocaleString() : String(val) };
     }
     if (m.label === "Heart Rate") {
-      return {
-        ...m,
-        value: profile?.profile?.wearable_summary?.avg_resting_hr
-          ? Math.round(profile.profile.wearable_summary.avg_resting_hr).toString()
-          : "72",
-      };
+      const val = profile?.profile?.wearable_summary?.avg_resting_hr ?? user.metrics.heartRate;
+      return { ...m, value: typeof val === "number" ? Math.round(val).toString() : String(val) };
+    }
+    if (m.label === "Sleep") {
+      const val = profile?.profile?.wearable_summary?.avg_sleep_hours ?? user.metrics.sleep;
+      return { ...m, value: typeof val === "number" ? String(val) : String(val) };
     }
     if (m.label === "Water") {
-      return {
-        ...m,
-        value:
-          profile?.profile?.manual_entries?.lifestyle?.manual_water_glasses_daily ??
-          profile?.profile?.lifestyle?.water_glasses_daily ??
-          "6",
-      };
+      const val =
+        profile?.profile?.manual_entries?.lifestyle?.manual_water_glasses_daily ??
+        profile?.profile?.lifestyle?.water_glasses_daily ??
+        user.metrics.water;
+      return { ...m, value: typeof val === "number" ? String(val) : String(val) };
     }
     return m;
   });
@@ -141,49 +160,60 @@ export default function Dashboard() {
   return (
     <div className="p-6 max-w-6xl mx-auto space-y-6">
       <div>
-        <h1 className="text-2xl font-semibold text-foreground">Good morning, Jane 👋</h1>
+        <h1 className="text-2xl font-semibold text-foreground">Good morning, {user.name} 👋</h1>
         <p className="text-muted-foreground text-sm mt-1">Here's your health overview for today</p>
       </div>
 
       
 
-      {/* Top row: Health Score + Quick Actions */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card className="md:col-span-1 flex flex-col items-center justify-center py-8">
-          <HealthScoreRing score={healthScore} />
-          <p className="text-sm text-muted-foreground mt-3">Great progress this week!</p>
-        </Card>
+{/* Top row: Health Score + Longevity Plan */}
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <Card className="md:col-span-1 flex flex-col items-center justify-center py-8">
+    <HealthScoreRing score={healthScore} />
+    <p className="text-sm text-muted-foreground mt-3">
+      Based on Jean’s current lifestyle and health indicators.
+    </p>
+  </Card>
 
-        <Card className="md:col-span-2">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-base">Longevity Plan</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="p-4 border rounded-lg">
-                <p className="font-medium">🧠 Stress Optimization</p>
-                <p className="text-sm text-muted-foreground">
-                  Try a 10-minute mindfulness session today to reduce stress levels.
-                </p>
-              </div>
+  <Card className="md:col-span-2">
+    <CardHeader className="pb-3">
+      <CardTitle className="text-base">Longevity Plan</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {user.metrics.steps < 10000 && (
+          <div className="p-4 border rounded-lg">
+            <p className="font-medium">🚶 Activity Goal</p>
+            <p className="text-sm text-muted-foreground">
+              Current average: {user.metrics.steps.toLocaleString()} steps/day. Increase toward
+              10,000 steps/day to support cardiovascular and metabolic health.
+            </p>
+          </div>
+        )}
 
-              <div className="p-4 border rounded-lg">
-                <p className="font-medium">🏃 Activity Boost</p>
-                <p className="text-sm text-muted-foreground">
-                  Increase your daily steps by 1,000 to improve cardiovascular health.
-                </p>
-              </div>
+        {user.metrics.sleep < 7 && (
+          <div className="p-4 border rounded-lg">
+            <p className="font-medium">😴 Sleep Improvement</p>
+            <p className="text-sm text-muted-foreground">
+              Current sleep is {user.metrics.sleep} hours/night. Aim for 7+ hours to reduce
+              metabolic and stress-related risk.
+            </p>
+          </div>
+        )}
 
-              <div className="p-4 border rounded-lg">
-                <p className="font-medium">💧 Hydration Goal</p>
-                <p className="text-sm text-muted-foreground">
-                  Aim for 8 glasses of water today to support metabolism and energy.
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+        {user.lifestyle.fruitVeg < 5 && (
+          <div className="p-4 border rounded-lg">
+            <p className="font-medium">🥗 Nutrition Boost</p>
+            <p className="text-sm text-muted-foreground">
+              Current intake is {user.lifestyle.fruitVeg} fruit/veg servings per day. Increase
+              toward 5+ daily servings for better long-term health outcomes.
+            </p>
+          </div>
+        )}
       </div>
+    </CardContent>
+  </Card>
+</div>
 
       {/* Metrics */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -204,9 +234,20 @@ export default function Dashboard() {
                   </div>
                 </div>
                 <div className="text-xl font-semibold text-foreground">
-                  {m.value}
+                  {m.label === "Steps" ? `${m.value} steps` : m.value}
                   {m.unit && <span className="text-xs font-normal text-muted-foreground ml-1">{m.unit}</span>}
                 </div>
+                {/* Inline risk / early-warning indicators for key metrics */}
+                {m.label === "Sleep" && (
+                  Number(profile?.profile?.wearable_summary?.avg_sleep_hours ?? user.metrics.sleep) < 7 && (
+                    <div className="text-yellow-500 text-xs mt-1">Below recommended (7h+) → increased metabolic risk</div>
+                  )
+                )}
+                {m.label === "Heart Rate" && (
+                  Number(profile?.profile?.wearable_summary?.avg_resting_hr ?? user.metrics.heartRate) > 70 && (
+                    <div className="text-red-500 text-xs mt-1">Elevated resting heart rate → possible stress/cardiovascular risk</div>
+                  )
+                )}
                 <div className="text-xs text-muted-foreground">{m.label}</div>
                 {m.target && (
                   <div className="mt-2 h-1.5 bg-muted rounded-full overflow-hidden">
@@ -273,4 +314,66 @@ export default function Dashboard() {
       <LongevityJourney healthScore={healthScore} />
     </div>
   );
+const longevityPlan = [
+  {
+    id: "baseline",
+    label: "Now",
+    title: "Build Your Baseline",
+    focus: "Understand current diabetes and lifestyle risk patterns.",
+    actions: [
+      "Track daily steps and sleep",
+      "Monitor diet consistency",
+      "Identify key risk factors"
+    ],
+    impact: [
+      "Clear visibility into health status",
+      "Personalized prevention starting point"
+    ]
+  },
+  {
+    id: "30days",
+    label: "30 Days",
+    title: "Strengthen Habits",
+    focus: "Improve movement, sleep, and nutrition.",
+    actions: [
+      "Increase steps toward 10,000/day",
+      "Improve sleep to 7+ hours",
+      "Increase fruit & vegetable intake"
+    ],
+    impact: [
+      "Better energy and consistency",
+      "Early metabolic improvements"
+    ]
+  },
+  {
+    id: "90days",
+    label: "90 Days",
+    title: "Reduce Risk",
+    focus: "Turn habits into measurable prevention.",
+    actions: [
+      "Respond to early warnings",
+      "Maintain consistent routines",
+      "Follow recommended checks"
+    ],
+    impact: [
+      "Lower diabetes progression risk",
+      "Improved cardiovascular health"
+    ]
+  },
+  {
+    id: "1year",
+    label: "1 Year",
+    title: "Healthy Aging",
+    focus: "Sustain long-term health improvements.",
+    actions: [
+      "Maintain habits",
+      "Adjust plan with data",
+      "Continue preventive care"
+    ],
+    impact: [
+      "Reduced long-term risk",
+      "Stronger health confidence"
+    ]
+  }
+];  
 }
