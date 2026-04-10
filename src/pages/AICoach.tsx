@@ -19,22 +19,8 @@ const suggestedPrompts = [
   "Book me an Appointment",
 ];
 
-const mockResponses: Record<string, string> = {
-  default: "That's a great question! Based on your health data, I'd recommend starting with small, consistent changes. Would you like me to create a personalized plan for you?",
-  sleep: "**Here are some tips to improve your sleep:**\n\n1. **Stick to a schedule** — Go to bed and wake up at the same time daily\n2. **Limit screens** — No phones/laptops 1 hour before bed\n3. **Cool environment** — Keep your bedroom at 65-68°F\n4. **Magnesium** — Consider a magnesium glycinate supplement\n5. **Wind-down routine** — Try 10 minutes of deep breathing\n\nYour recent data shows you're averaging 7.2 hours — let's aim for 7.5 this week! 🌙",
-  recovery: "**Post-workout recovery essentials:**\n\n- 🥤 **Hydrate** — Drink 16-24oz water within 30 minutes\n- 🍌 **Protein + carbs** — Eat within 45 minutes (aim for 20-30g protein)\n- 🧊 **Cold therapy** — Try a 2-min cold shower\n- 🧘 **Stretch** — 10 minutes of gentle stretching\n- 😴 **Rest** — Ensure 7-8 hours of sleep tonight\n\nI noticed your step count was high today — great job staying active!",
-  stress: "**Stress management strategies based on your profile:**\n\n1. **Box breathing** — 4 seconds in, hold 4, out 4, hold 4. Repeat 5 times\n2. **Movement** — Even a 10-minute walk can reduce cortisol by 15%\n3. **Journaling** — Write 3 things you're grateful for each evening\n4. **Adaptogens** — Ashwagandha has shown promise for stress reduction\n\nYour heart rate has been steady at 72 bpm — that's a good sign! Let's keep it that way. 💚",
-  supplements: "**Recommended supplements based on your health profile:**\n\n| Supplement | Benefit | Timing |\n|---|---|---|\n| Vitamin D3 | Immune support, mood | Morning |\n| Omega-3 | Heart & brain health | With meals |\n| Magnesium | Sleep, recovery | Evening |\n| Probiotics | Gut health | Morning |\n\nAll of these are available in our **Health Shop** — want me to add them to your cart? 🛒",
-};
-
-function getResponse(input: string): string {
-  const lower = input.toLowerCase();
-  if (lower.includes("sleep")) return mockResponses.sleep;
-  if (lower.includes("recovery") || lower.includes("workout")) return mockResponses.recovery;
-  if (lower.includes("stress") || lower.includes("anxiety")) return mockResponses.stress;
-  if (lower.includes("supplement") || lower.includes("vitamin")) return mockResponses.supplements;
-  return mockResponses.default;
-}
+const PATIENT_ID = "PT0001";
+const API_URL = "http://127.0.0.1:8000/api/chat";
 
 export default function AICoach() {
   const [messages, setMessages] = useState<Message[]>([
@@ -47,6 +33,7 @@ export default function AICoach() {
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [attachedFile, setAttachedFile] = useState<File | null>(null);
+  const [sessionId, setSessionId] = useState<string | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -54,7 +41,7 @@ export default function AICoach() {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isTyping]);
 
-  const sendMessage = (text: string, file?: File | null) => {
+  const sendMessage = async (text: string, file?: File | null) => {
     if (!text.trim() && !file) return;
     let content = text || "";
     if (file && file.name) {
@@ -66,14 +53,34 @@ export default function AICoach() {
     setAttachedFile(null);
     setIsTyping(true);
 
-    setTimeout(() => {
-      const response = getResponse(text || "");
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ patient_id: PATIENT_ID, message: content, session_id: sessionId }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.detail ?? `Server error ${res.status}`);
+      }
+      setSessionId(data.session_id);
       setMessages((prev) => [
         ...prev,
-        { id: (Date.now() + 1).toString(), role: "assistant", content: response },
+        { id: (Date.now() + 1).toString(), role: "assistant", content: data.response },
       ]);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Unknown error";
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: (Date.now() + 1).toString(),
+          role: "assistant",
+          content: `Error: ${msg}`,
+        },
+      ]);
+    } finally {
       setIsTyping(false);
-    }, 1200);
+    }
   };
 
   const handleAttachClick = () => {

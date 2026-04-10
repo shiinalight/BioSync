@@ -12,8 +12,11 @@ import math
 import numpy as np
 import pandas as pd
 from fastapi import APIRouter, HTTPException, Query
+from pydantic import BaseModel
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.model_selection import KFold, cross_val_predict
+
+from agent.longevity_agent import run_agent_async
 
 DATA = Path(__file__).parent.parent / "data" / "raw"
 
@@ -326,6 +329,24 @@ def sleep(patient_id: Optional[str] = Query(None)):
 @router.get("/scores/bio-age")
 def bio_age(patient_id: Optional[str] = Query(None)):
     return _get_patient(_cache["bio_age"], patient_id)
+
+
+class ChatRequest(BaseModel):
+    patient_id: str
+    message: str
+    session_id: Optional[str] = None
+
+
+@router.post("/chat")
+async def chat(body: ChatRequest):
+    """Send a message to the AI longevity agent and get a response."""
+    try:
+        response, session_id = await run_agent_async(
+            body.patient_id, body.message, body.session_id
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+    return {"response": response, "session_id": session_id}
 
 
 @router.get("/scores/all")

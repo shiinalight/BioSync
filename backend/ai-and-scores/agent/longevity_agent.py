@@ -39,6 +39,7 @@ import asyncio
 import os
 import sys
 from pathlib import Path
+from typing import Optional, Tuple
 
 import numpy as np
 import pandas as pd
@@ -537,6 +538,46 @@ async def _run_agent_async(patient_id: str, user_message: str) -> str:
             )
 
     return final_response
+
+
+async def run_agent_async(
+    patient_id: str,
+    user_message: str,
+    session_id: Optional[str] = None,
+) -> Tuple[str, str]:
+    """
+    Async version of run_agent for use in async contexts (e.g. FastAPI).
+
+    Pass the returned session_id on subsequent calls to maintain conversation
+    continuity within a chat session.
+
+    Returns:
+        (response_text, session_id)
+    """
+    if session_id is None:
+        session = await _session_service.create_session(
+            app_name="biosync",
+            user_id=patient_id,
+        )
+        session_id = session.id
+
+    message = types.Content(
+        role="user",
+        parts=[types.Part(text=user_message)],
+    )
+
+    final_response = ""
+    async for event in _runner.run_async(
+        user_id=patient_id,
+        session_id=session_id,
+        new_message=message,
+    ):
+        if event.is_final_response() and event.content and event.content.parts:
+            final_response = "".join(
+                p.text for p in event.content.parts if hasattr(p, "text") and p.text
+            )
+
+    return final_response, session_id
 
 
 def run_agent(patient_id: str, user_message: str) -> str:
