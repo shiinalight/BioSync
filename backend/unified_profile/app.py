@@ -16,6 +16,7 @@ app.add_middleware(
         "http://127.0.0.1:8081",
         "http://localhost:5173",
         "http://127.0.0.1:5173",
+        "https://your-vercel-app.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -54,6 +55,7 @@ async def generate_profile(
     wearable_path = None
     lifestyle_path = None
     uploaded_pdf_name = None
+    pdf_path = None
 
     if ehr_file and ehr_file.filename:
         ehr_path = os.path.join(UPLOAD_DIR, ehr_file.filename)
@@ -112,7 +114,8 @@ async def generate_profile(
             life_file=lifestyle_path,
             manual_clinical=manual_clinical,
             manual_lifestyle=manual_lifestyle,
-            uploaded_pdf_name=uploaded_pdf_name
+            uploaded_pdf_name=uploaded_pdf_name,
+            pdf_path=pdf_path
         )
         return JSONResponse(content={"profile": profile})
     except Exception as e:
