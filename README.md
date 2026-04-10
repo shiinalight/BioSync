@@ -33,6 +33,26 @@ Most “health dashboards” feel like spreadsheets. BioSync focuses on:
 
 ---
 
+## Screenshots
+
+Add your screenshots to `docs/screenshots/` and they will render here on GitHub.
+
+| Dashboard | Profile Data (Auto Sync + Manual Uploads) |
+| --- | --- |
+| ![Dashboard](docs/screenshots/dashboard.png) | ![Profile Data](docs/screenshots/profile-data.png) |
+
+| AI Coach | Longevity Journey |
+| --- | --- |
+| ![AI Coach](docs/screenshots/ai-coach.png) | ![Longevity Journey](docs/screenshots/longevity-journey.png) |
+
+| Health Shop (optional) |
+| --- |
+| ![Health Shop](docs/screenshots/shop.png) |
+
+> Tip: keep images ~1400px wide for crisp rendering.
+
+---
+
 ## Quickstart (3 terminals)
 
 ### 0) Prereqs
@@ -154,7 +174,3 @@ flowchart LR
 
 - **CORS / fetch errors**: ensure both APIs are running on `:8001` and `:8002`.
 - **`/api/chat` returns 429/503**: wait 10–30 seconds and retry; free-tier limits can be strict.
-
-# Welcome to your Lovable project
-
-TODO: Document your project here
