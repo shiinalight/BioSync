@@ -181,7 +181,7 @@ export default function Dashboard() {
     };
   }, []);
 
-  const healthScore = profile?.profile?.health_score || 82;
+  const healthScore = profile?.profile?.health_score || 63;
 
   const metricsWithProfile = metrics.map((m) => {
     let next = { ...m };
