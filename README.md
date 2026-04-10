@@ -134,6 +134,12 @@ curl -X POST http://127.0.0.1:8002/api/chat \
 
 ---
 
+## Backend Architecture (detailed)
+
+![Backend Architecture for Unified Health Intelligence](docs/screenshots/backend-architecture.png)
+
+---
+
 ## Architecture (high level)
 
 ```mermaid
