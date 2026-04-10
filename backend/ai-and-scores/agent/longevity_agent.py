@@ -90,6 +90,37 @@ def _safe(v):
     return v
 
 
+def _clamp(value: float, lo: float = 0.0, hi: float = 100.0) -> float:
+    return max(lo, min(hi, value))
+
+
+def _bio_age_gap_to_score(bio_age_gap: float) -> float:
+    """
+    Convert bio_age_gap (years ahead of chronological age) to a 0–100 score.
+    A gap ≤ 2 years is considered ideal (100). Linear decay to 0 at ≥ 15 years ahead.
+    Negative gaps (biologically younger) are capped at 100.
+    """
+    if bio_age_gap <= 2.0:
+        return 100.0
+    return _clamp(100.0 * (15.0 - bio_age_gap) / (15.0 - 2.0))
+
+
+_LONGEVITY_WEIGHTS = {
+    "cardiovascular": 0.35,
+    "sleep_recovery": 0.25,
+    "lifestyle":      0.25,
+    "biological_age": 0.15,
+}
+
+
+def _longevity_category(score: float) -> str:
+    if score >= 80: return "Excellent"
+    if score >= 65: return "Good"
+    if score >= 50: return "Fair"
+    if score >= 35: return "Poor"
+    return "Very Poor"
+
+
 
 # ═════════════════════════════════════════════════════════════
 # TOOLS — plain Python functions
@@ -359,6 +390,104 @@ def get_risk_flags(patient_id: str) -> dict:
     }
 
 
+def get_composite_longevity_score(patient_id: str) -> dict:
+    """
+    Calculates and returns the composite BioSync Longevity Score (0–100) for a patient,
+    combining all 4 health dimensions into a single actionable number.
+
+    Dimension weights (evidence-informed):
+      Cardiovascular Fitness : 35%  — strongest predictor of all-cause mortality
+      Sleep & Recovery       : 25%  — systemic recovery and autonomic health
+      Lifestyle & Behavior   : 25%  — 12 modifiable risk factors incl. WHO-5 wellbeing
+      Biological Age Proxy   : 15%  — physiological aging rate vs. chronological age
+
+    Score bands:
+      80–100 : Excellent — top-tier longevity profile
+      65–79  : Good      — above average, targeted optimisation possible
+      50–64  : Fair      — meaningful risks present, action recommended
+      35–49  : Poor      — multiple risk domains need intervention
+       0–34  : Very Poor — urgent clinical and lifestyle attention required
+
+    Call this whenever the patient asks for their longevity score, overall health rating,
+    or a single summary number. Do not compute this manually — always call this tool.
+
+    Args:
+        patient_id: Patient identifier, e.g. PT0001.
+
+    Returns:
+        Dict with composite_score (0–100), category label, biological_age_estimate,
+        per-dimension scores, dimension weights, and a short interpretation string.
+    """
+    ba = _row(_DATA["bio_age"],   patient_id)
+    cv = _row(_DATA["cv"],        patient_id)
+    ls = _row(_DATA["lifestyle"], patient_id)
+    sl = _row(_DATA["sleep"],     patient_id)
+
+    if not ba:
+        return {"error": f"Patient '{patient_id}' not found"}
+
+    # ── Per-dimension scores (all 0–100) ─────────────────────
+    bio_age_gap   = float(ba.get("bio_age_gap") or 0)
+    bio_age_score = round(_bio_age_gap_to_score(bio_age_gap), 1)
+
+    cv_score      = round(float(cv.get("cardiovascular_health_score") or 0), 1) if cv else None
+    lifestyle_score = round(float(ls.get("lifestyle_score") or 0), 1) if ls else None
+    sleep_score   = round(float(sl.get("sleep_recovery_score") or 0), 1) if sl else None
+
+    # ── Composite (skip missing dimensions gracefully) ────────
+    scored = {
+        "cardiovascular": cv_score,
+        "sleep_recovery": sleep_score,
+        "lifestyle":      lifestyle_score,
+        "biological_age": bio_age_score,
+    }
+    total_weight = sum(_LONGEVITY_WEIGHTS[k] for k, v in scored.items() if v is not None)
+    composite = sum(
+        _LONGEVITY_WEIGHTS[k] * v
+        for k, v in scored.items() if v is not None
+    ) / total_weight  # weighted average, already 0–100
+    composite = round(_clamp(composite), 1)
+
+    chron_age = float(ba.get("age") or 0)
+    bio_age   = round(chron_age + bio_age_gap, 1)
+
+    return {
+        "patient_id":              patient_id,
+        "composite_score":         composite,
+        "category":                _longevity_category(composite),
+        "score_range":             "0–100 (higher is better)",
+        "biological_age_estimate": bio_age,
+        "chronological_age":       _safe(ba.get("age")),
+        "bio_age_gap_years":       round(bio_age_gap, 1),
+        "dimension_scores": {
+            "cardiovascular_fitness": {
+                "score":  cv_score,
+                "weight": "35%",
+            },
+            "sleep_and_recovery": {
+                "score":  sleep_score,
+                "weight": "25%",
+            },
+            "lifestyle_and_behavior": {
+                "score":  lifestyle_score,
+                "weight": "25%",
+            },
+            "biological_age": {
+                "score":  bio_age_score,
+                "weight": "15%",
+                "note":   f"Derived from bio-age gap of {bio_age_gap:+.1f} years",
+            },
+        },
+        "interpretation": (
+            f"Your BioSync Longevity Score is {composite}/100 ({_longevity_category(composite)}). "
+            f"Your biological age is estimated at {bio_age:.0f} vs your chronological age of {chron_age:.0f}. "
+            f"Your strongest dimension is {max(scored, key=lambda k: scored[k] or 0).replace('_', ' ')} "
+            f"and your area with most room to improve is "
+            f"{min(scored, key=lambda k: scored[k] or 100).replace('_', ' ')}."
+        ),
+    }
+
+
 # ═════════════════════════════════════════════════════════════
 # Agent definition
 #
@@ -374,6 +503,10 @@ You have access to a patient's longitudinal health data across 4 clinically vali
   • Cardiovascular Health — 10-year CVD risk (Framingham) + aerobic fitness (VO2max, Nes 2011)
   • Lifestyle Risk        — composite of 12 evidence-based lifestyle factors including WHO-5 wellbeing
   • Sleep & Recovery      — objective wearable data + subjective satisfaction + 90-day HRV trend
+
+You also have a composite BioSync Longevity Score (0–100) that combines all 4 dimensions:
+  Cardiovascular Fitness 35% + Sleep & Recovery 25% + Lifestyle 25% + Biological Age 15%
+  Bands: 80–100 Excellent | 65–79 Good | 50–64 Fair | 35–49 Poor | 0–34 Very Poor
 
 Your coaching principles:
 
@@ -394,9 +527,11 @@ Your coaching principles:
 5. TALK to the patient. Use "your" not "the patient's". Be direct and human, not clinical and cold.
 
 Tool call order:
-  → Always start with get_longevity_scores (full overview)
-  → Then get_risk_flags (triage — what is urgent vs monitoring)
-  → Then get_wearable_trends only when you need trajectory for a specific concern
+  → When asked for a score / number / rating → call get_composite_longevity_score FIRST, then get_risk_flags
+  → For detailed breakdowns or full overviews → get_longevity_scores, then get_risk_flags
+  → get_wearable_trends only when you need trajectory context for a specific concern
+
+IMPORTANT: Never estimate or guess a longevity score. Always call get_composite_longevity_score to retrieve the calculated value.
 
 ──────────────────────────────────────────────────────────────
 WHEN ASKED FOR A 1-YEAR LONGEVITY PLAN, produce a structured plan using EXACTLY this format:
@@ -490,7 +625,7 @@ longevity_agent = Agent(
     name="biosync_longevity_agent",
     model="gemini-2.5-flash",
     instruction=_INSTRUCTION,
-    tools=[get_longevity_scores, get_wearable_trends, get_risk_flags],
+    tools=[get_composite_longevity_score, get_longevity_scores, get_wearable_trends, get_risk_flags],
 )
 
 
