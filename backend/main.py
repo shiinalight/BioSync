@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from api_routers import router
+from api.routers import router
 
 app = FastAPI(title="BioSync API", version="1.0.0")
 

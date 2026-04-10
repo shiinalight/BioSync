@@ -15,7 +15,7 @@ from fastapi import APIRouter, HTTPException, Query
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.model_selection import KFold, cross_val_predict
 
-DATA = Path(__file__).parent / "data"
+DATA = Path(__file__).parent.parent / "data" / "raw"
 
 router = APIRouter(prefix="/api")
 
