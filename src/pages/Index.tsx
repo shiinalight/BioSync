@@ -8,6 +8,7 @@ import {
   Bot, CalendarClock, ShoppingBag, TrendingUp, TrendingDown 
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { LongevityJourney } from "@/components/dashboard/LongevityJourney";
 
  
 const metrics = [
@@ -268,6 +269,8 @@ export default function Dashboard() {
           </CardContent>
         </Card>
       </div>
+
+      <LongevityJourney healthScore={healthScore} />
     </div>
   );
 }
