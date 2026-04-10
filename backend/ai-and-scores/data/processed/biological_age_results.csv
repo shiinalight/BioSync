@@ -1,0 +1,1001 @@
+patient_id,age,biological_age,bio_age_gap,bio_age_interpretation,aging_alert
+PT0001,66,61.0,-5.0,excellent — aging well below calendar age,False
+PT0002,48,50.6,2.6,mildly accelerated aging,False
+PT0003,51,57.3,6.3,significantly accelerated aging,True
+PT0004,36,35.1,-0.9,on track with chronological age,False
+PT0005,40,41.6,1.6,mildly accelerated aging,False
+PT0006,64,67.0,3.0,mildly accelerated aging,False
+PT0007,51,46.7,-4.3,good — physiologically younger than calendar age,False
+PT0008,48,44.0,-4.0,good — physiologically younger than calendar age,False
+PT0009,51,46.4,-4.6,good — physiologically younger than calendar age,False
+PT0010,63,61.6,-1.4,good — physiologically younger than calendar age,False
+PT0011,54,58.4,4.4,mildly accelerated aging,False
+PT0012,65,56.3,-8.7,excellent — aging well below calendar age,False
+PT0013,68,72.3,4.3,mildly accelerated aging,False
+PT0014,75,65.0,-10.0,excellent — aging well below calendar age,False
+PT0015,24,21.3,-2.7,good — physiologically younger than calendar age,False
+PT0016,48,42.4,-5.6,excellent — aging well below calendar age,False
+PT0017,49,50.7,1.7,mildly accelerated aging,False
+PT0018,78,81.8,3.8,mildly accelerated aging,False
+PT0019,67,70.1,3.1,mildly accelerated aging,False
+PT0020,58,55.8,-2.2,good — physiologically younger than calendar age,False
+PT0021,65,67.5,2.5,mildly accelerated aging,False
+PT0022,24,48.9,24.9,significantly accelerated aging,True
+PT0023,56,64.9,8.9,significantly accelerated aging,True
+PT0024,58,64.4,6.4,significantly accelerated aging,True
+PT0025,59,59.8,0.8,on track with chronological age,False
+PT0026,20,18.8,-1.2,good — physiologically younger than calendar age,False
+PT0027,55,58.1,3.1,mildly accelerated aging,False
+PT0028,81,83.2,2.2,mildly accelerated aging,False
+PT0029,45,45.1,0.1,on track with chronological age,False
+PT0030,18,19.8,1.8,mildly accelerated aging,False
+PT0031,77,70.7,-6.3,excellent — aging well below calendar age,False
+PT0032,37,36.6,-0.4,on track with chronological age,False
+PT0033,49,50.2,1.2,mildly accelerated aging,False
+PT0034,58,67.3,9.3,significantly accelerated aging,True
+PT0035,43,49.0,6.0,significantly accelerated aging,True
+PT0036,63,60.6,-2.4,good — physiologically younger than calendar age,False
+PT0037,30,27.6,-2.4,good — physiologically younger than calendar age,False
+PT0038,63,65.1,2.1,mildly accelerated aging,False
+PT0039,55,57.4,2.4,mildly accelerated aging,False
+PT0040,34,37.6,3.6,mildly accelerated aging,False
+PT0041,67,72.0,5.0,mildly accelerated aging,False
+PT0042,30,38.9,8.9,significantly accelerated aging,True
+PT0043,35,36.0,1.0,on track with chronological age,False
+PT0044,56,51.0,-5.0,excellent — aging well below calendar age,False
+PT0045,42,35.5,-6.5,excellent — aging well below calendar age,False
+PT0046,62,59.3,-2.7,good — physiologically younger than calendar age,False
+PT0047,48,39.1,-8.9,excellent — aging well below calendar age,False
+PT0048,33,28.5,-4.5,good — physiologically younger than calendar age,False
+PT0049,65,70.0,5.0,mildly accelerated aging,False
+PT0050,74,69.2,-4.8,good — physiologically younger than calendar age,False
+PT0051,55,58.9,3.9,mildly accelerated aging,False
+PT0052,60,58.9,-1.1,good — physiologically younger than calendar age,False
+PT0053,32,37.0,5.0,mildly accelerated aging,False
+PT0054,51,49.9,-1.1,good — physiologically younger than calendar age,False
+PT0055,57,57.5,0.5,on track with chronological age,False
+PT0056,22,24.5,2.5,mildly accelerated aging,False
+PT0057,50,46.4,-3.6,good — physiologically younger than calendar age,False
+PT0058,50,54.0,4.0,mildly accelerated aging,False
+PT0059,32,28.7,-3.3,good — physiologically younger than calendar age,False
+PT0060,45,43.2,-1.8,good — physiologically younger than calendar age,False
+PT0061,66,68.0,2.0,mildly accelerated aging,False
+PT0062,47,57.4,10.4,significantly accelerated aging,True
+PT0063,72,68.2,-3.8,good — physiologically younger than calendar age,False
+PT0064,68,55.5,-12.5,excellent — aging well below calendar age,False
+PT0065,53,58.7,5.7,significantly accelerated aging,True
+PT0066,52,52.3,0.3,on track with chronological age,False
+PT0067,38,32.9,-5.1,excellent — aging well below calendar age,False
+PT0068,79,68.0,-11.0,excellent — aging well below calendar age,False
+PT0069,38,37.2,-0.8,on track with chronological age,False
+PT0070,52,53.3,1.3,mildly accelerated aging,False
+PT0071,63,53.0,-10.0,excellent — aging well below calendar age,False
+PT0072,38,37.4,-0.6,on track with chronological age,False
+PT0073,66,60.1,-5.9,excellent — aging well below calendar age,False
+PT0074,44,49.4,5.4,significantly accelerated aging,True
+PT0075,46,47.6,1.6,mildly accelerated aging,False
+PT0076,50,42.9,-7.1,excellent — aging well below calendar age,False
+PT0077,29,19.9,-9.1,excellent — aging well below calendar age,False
+PT0078,50,50.8,0.8,on track with chronological age,False
+PT0079,48,36.4,-11.6,excellent — aging well below calendar age,False
+PT0080,50,41.0,-9.0,excellent — aging well below calendar age,False
+PT0081,31,30.7,-0.3,on track with chronological age,False
+PT0082,57,50.7,-6.3,excellent — aging well below calendar age,False
+PT0083,63,68.8,5.8,significantly accelerated aging,True
+PT0084,66,66.8,0.8,on track with chronological age,False
+PT0085,44,39.1,-4.9,good — physiologically younger than calendar age,False
+PT0086,31,34.2,3.2,mildly accelerated aging,False
+PT0087,78,79.8,1.8,mildly accelerated aging,False
+PT0088,28,26.0,-2.0,good — physiologically younger than calendar age,False
+PT0089,58,51.6,-6.4,excellent — aging well below calendar age,False
+PT0090,24,27.9,3.9,mildly accelerated aging,False
+PT0091,52,49.5,-2.5,good — physiologically younger than calendar age,False
+PT0092,90,78.9,-11.1,excellent — aging well below calendar age,False
+PT0093,78,65.8,-12.2,excellent — aging well below calendar age,False
+PT0094,44,50.8,6.8,significantly accelerated aging,True
+PT0095,41,42.1,1.1,mildly accelerated aging,False
+PT0096,43,53.8,10.8,significantly accelerated aging,True
+PT0097,48,47.0,-1.0,good — physiologically younger than calendar age,False
+PT0098,27,33.4,6.4,significantly accelerated aging,True
+PT0099,69,59.4,-9.6,excellent — aging well below calendar age,False
+PT0100,33,34.6,1.6,mildly accelerated aging,False
+PT0101,35,35.6,0.6,on track with chronological age,False
+PT0102,26,32.4,6.4,significantly accelerated aging,True
+PT0103,64,59.9,-4.1,good — physiologically younger than calendar age,False
+PT0104,48,49.7,1.7,mildly accelerated aging,False
+PT0105,69,75.4,6.4,significantly accelerated aging,True
+PT0106,53,59.6,6.6,significantly accelerated aging,True
+PT0107,18,24.1,6.1,significantly accelerated aging,True
+PT0108,41,36.2,-4.8,good — physiologically younger than calendar age,False
+PT0109,23,21.2,-1.8,good — physiologically younger than calendar age,False
+PT0110,38,39.8,1.8,mildly accelerated aging,False
+PT0111,40,41.4,1.4,mildly accelerated aging,False
+PT0112,43,47.1,4.1,mildly accelerated aging,False
+PT0113,43,41.7,-1.3,good — physiologically younger than calendar age,False
+PT0114,24,21.3,-2.7,good — physiologically younger than calendar age,False
+PT0115,18,22.0,4.0,mildly accelerated aging,False
+PT0116,38,43.6,5.6,significantly accelerated aging,True
+PT0117,59,61.8,2.8,mildly accelerated aging,False
+PT0118,55,55.0,0.0,on track with chronological age,False
+PT0119,59,56.6,-2.4,good — physiologically younger than calendar age,False
+PT0120,53,54.2,1.2,mildly accelerated aging,False
+PT0121,33,33.7,0.7,on track with chronological age,False
+PT0122,57,57.4,0.4,on track with chronological age,False
+PT0123,31,35.0,4.0,mildly accelerated aging,False
+PT0124,60,57.4,-2.6,good — physiologically younger than calendar age,False
+PT0125,22,27.4,5.4,significantly accelerated aging,True
+PT0126,65,65.1,0.1,on track with chronological age,False
+PT0127,74,67.9,-6.1,excellent — aging well below calendar age,False
+PT0128,54,46.9,-7.1,excellent — aging well below calendar age,False
+PT0129,65,63.5,-1.5,good — physiologically younger than calendar age,False
+PT0130,54,56.5,2.5,mildly accelerated aging,False
+PT0131,61,57.7,-3.3,good — physiologically younger than calendar age,False
+PT0132,53,59.6,6.6,significantly accelerated aging,True
+PT0133,54,49.1,-4.9,good — physiologically younger than calendar age,False
+PT0134,55,54.1,-0.9,on track with chronological age,False
+PT0135,78,66.6,-11.4,excellent — aging well below calendar age,False
+PT0136,34,36.8,2.8,mildly accelerated aging,False
+PT0137,53,52.5,-0.5,on track with chronological age,False
+PT0138,63,62.7,-0.3,on track with chronological age,False
+PT0139,54,53.1,-0.9,on track with chronological age,False
+PT0140,42,39.7,-2.3,good — physiologically younger than calendar age,False
+PT0141,67,67.5,0.5,on track with chronological age,False
+PT0142,63,57.6,-5.4,excellent — aging well below calendar age,False
+PT0143,30,32.0,2.0,mildly accelerated aging,False
+PT0144,63,62.3,-0.7,on track with chronological age,False
+PT0145,46,38.5,-7.5,excellent — aging well below calendar age,False
+PT0146,51,48.8,-2.2,good — physiologically younger than calendar age,False
+PT0147,54,57.1,3.1,mildly accelerated aging,False
+PT0148,26,25.3,-0.7,on track with chronological age,False
+PT0149,40,43.3,3.3,mildly accelerated aging,False
+PT0150,22,25.8,3.8,mildly accelerated aging,False
+PT0151,66,62.8,-3.2,good — physiologically younger than calendar age,False
+PT0152,49,50.5,1.5,mildly accelerated aging,False
+PT0153,59,63.6,4.6,mildly accelerated aging,False
+PT0154,24,24.9,0.9,on track with chronological age,False
+PT0155,27,32.0,5.0,mildly accelerated aging,False
+PT0156,55,59.0,4.0,mildly accelerated aging,False
+PT0157,44,44.2,0.2,on track with chronological age,False
+PT0158,57,52.6,-4.4,good — physiologically younger than calendar age,False
+PT0159,66,66.0,-0.0,on track with chronological age,False
+PT0160,53,52.3,-0.7,on track with chronological age,False
+PT0161,59,48.0,-11.0,excellent — aging well below calendar age,False
+PT0162,52,44.0,-8.0,excellent — aging well below calendar age,False
+PT0163,61,59.0,-2.0,good — physiologically younger than calendar age,False
+PT0164,83,88.8,5.8,significantly accelerated aging,True
+PT0165,49,52.3,3.3,mildly accelerated aging,False
+PT0166,52,59.3,7.3,significantly accelerated aging,True
+PT0167,43,43.1,0.1,on track with chronological age,False
+PT0168,49,50.6,1.6,mildly accelerated aging,False
+PT0169,46,43.0,-3.0,good — physiologically younger than calendar age,False
+PT0170,50,48.7,-1.3,good — physiologically younger than calendar age,False
+PT0171,18,27.8,9.8,significantly accelerated aging,True
+PT0172,32,33.1,1.1,mildly accelerated aging,False
+PT0173,53,66.6,13.6,significantly accelerated aging,True
+PT0174,39,39.1,0.1,on track with chronological age,False
+PT0175,38,31.9,-6.1,excellent — aging well below calendar age,False
+PT0176,65,56.9,-8.1,excellent — aging well below calendar age,False
+PT0177,58,58.7,0.7,on track with chronological age,False
+PT0178,41,39.8,-1.2,good — physiologically younger than calendar age,False
+PT0179,41,43.8,2.8,mildly accelerated aging,False
+PT0180,51,53.0,2.0,mildly accelerated aging,False
+PT0181,45,42.8,-2.2,good — physiologically younger than calendar age,False
+PT0182,26,31.5,5.5,significantly accelerated aging,True
+PT0183,68,69.9,1.9,mildly accelerated aging,False
+PT0184,74,68.4,-5.6,excellent — aging well below calendar age,False
+PT0185,34,42.8,8.8,significantly accelerated aging,True
+PT0186,49,45.3,-3.7,good — physiologically younger than calendar age,False
+PT0187,90,82.4,-7.6,excellent — aging well below calendar age,False
+PT0188,40,32.8,-7.2,excellent — aging well below calendar age,False
+PT0189,67,61.8,-5.2,excellent — aging well below calendar age,False
+PT0190,64,59.7,-4.3,good — physiologically younger than calendar age,False
+PT0191,62,62.9,0.9,on track with chronological age,False
+PT0192,31,30.7,-0.3,on track with chronological age,False
+PT0193,52,58.4,6.4,significantly accelerated aging,True
+PT0194,23,27.5,4.5,mildly accelerated aging,False
+PT0195,74,74.9,0.9,on track with chronological age,False
+PT0196,77,76.2,-0.8,on track with chronological age,False
+PT0197,49,48.0,-1.0,good — physiologically younger than calendar age,False
+PT0198,42,46.2,4.2,mildly accelerated aging,False
+PT0199,40,45.6,5.6,significantly accelerated aging,True
+PT0200,70,65.6,-4.4,good — physiologically younger than calendar age,False
+PT0201,53,48.9,-4.1,good — physiologically younger than calendar age,False
+PT0202,18,19.4,1.4,mildly accelerated aging,False
+PT0203,47,57.8,10.8,significantly accelerated aging,True
+PT0204,41,42.7,1.7,mildly accelerated aging,False
+PT0205,50,43.5,-6.5,excellent — aging well below calendar age,False
+PT0206,37,35.1,-1.9,good — physiologically younger than calendar age,False
+PT0207,47,57.8,10.8,significantly accelerated aging,True
+PT0208,71,69.0,-2.0,good — physiologically younger than calendar age,False
+PT0209,19,22.2,3.2,mildly accelerated aging,False
+PT0210,51,45.0,-6.0,excellent — aging well below calendar age,False
+PT0211,35,32.2,-2.8,good — physiologically younger than calendar age,False
+PT0212,32,32.6,0.6,on track with chronological age,False
+PT0213,18,20.1,2.1,mildly accelerated aging,False
+PT0214,67,69.3,2.3,mildly accelerated aging,False
+PT0215,43,44.4,1.4,mildly accelerated aging,False
+PT0216,90,79.3,-10.7,excellent — aging well below calendar age,False
+PT0217,47,44.6,-2.4,good — physiologically younger than calendar age,False
+PT0218,31,28.7,-2.3,good — physiologically younger than calendar age,False
+PT0219,63,62.2,-0.8,on track with chronological age,False
+PT0220,47,53.4,6.4,significantly accelerated aging,True
+PT0221,36,46.1,10.1,significantly accelerated aging,True
+PT0222,30,32.6,2.6,mildly accelerated aging,False
+PT0223,59,51.3,-7.7,excellent — aging well below calendar age,False
+PT0224,56,58.1,2.1,mildly accelerated aging,False
+PT0225,53,51.2,-1.8,good — physiologically younger than calendar age,False
+PT0226,46,47.5,1.5,mildly accelerated aging,False
+PT0227,40,32.8,-7.2,excellent — aging well below calendar age,False
+PT0228,33,30.7,-2.3,good — physiologically younger than calendar age,False
+PT0229,25,29.1,4.1,mildly accelerated aging,False
+PT0230,40,41.2,1.2,mildly accelerated aging,False
+PT0231,37,43.6,6.6,significantly accelerated aging,True
+PT0232,39,40.2,1.2,mildly accelerated aging,False
+PT0233,24,29.1,5.1,significantly accelerated aging,True
+PT0234,63,61.6,-1.4,good — physiologically younger than calendar age,False
+PT0235,30,34.8,4.8,mildly accelerated aging,False
+PT0236,51,45.5,-5.5,excellent — aging well below calendar age,False
+PT0237,48,51.0,3.0,mildly accelerated aging,False
+PT0238,78,75.7,-2.3,good — physiologically younger than calendar age,False
+PT0239,53,49.5,-3.5,good — physiologically younger than calendar age,False
+PT0240,59,61.1,2.1,mildly accelerated aging,False
+PT0241,64,60.9,-3.1,good — physiologically younger than calendar age,False
+PT0242,66,66.1,0.1,on track with chronological age,False
+PT0243,53,55.1,2.1,mildly accelerated aging,False
+PT0244,46,44.4,-1.6,good — physiologically younger than calendar age,False
+PT0245,60,53.6,-6.4,excellent — aging well below calendar age,False
+PT0246,33,32.7,-0.3,on track with chronological age,False
+PT0247,67,66.0,-1.0,good — physiologically younger than calendar age,False
+PT0248,47,43.1,-3.9,good — physiologically younger than calendar age,False
+PT0249,29,34.8,5.8,significantly accelerated aging,True
+PT0250,53,56.2,3.2,mildly accelerated aging,False
+PT0251,42,47.8,5.8,significantly accelerated aging,True
+PT0252,65,60.2,-4.8,good — physiologically younger than calendar age,False
+PT0253,34,38.7,4.7,mildly accelerated aging,False
+PT0254,45,45.9,0.9,on track with chronological age,False
+PT0255,29,34.1,5.1,significantly accelerated aging,True
+PT0256,58,59.4,1.4,mildly accelerated aging,False
+PT0257,90,86.3,-3.7,good — physiologically younger than calendar age,False
+PT0258,46,34.7,-11.3,excellent — aging well below calendar age,False
+PT0259,44,46.4,2.4,mildly accelerated aging,False
+PT0260,44,40.8,-3.2,good — physiologically younger than calendar age,False
+PT0261,34,41.2,7.2,significantly accelerated aging,True
+PT0262,53,57.7,4.7,mildly accelerated aging,False
+PT0263,61,60.6,-0.4,on track with chronological age,False
+PT0264,73,73.1,0.1,on track with chronological age,False
+PT0265,56,51.5,-4.5,good — physiologically younger than calendar age,False
+PT0266,29,33.5,4.5,mildly accelerated aging,False
+PT0267,34,35.9,1.9,mildly accelerated aging,False
+PT0268,61,58.3,-2.7,good — physiologically younger than calendar age,False
+PT0269,69,63.7,-5.3,excellent — aging well below calendar age,False
+PT0270,59,57.8,-1.2,good — physiologically younger than calendar age,False
+PT0271,57,58.5,1.5,mildly accelerated aging,False
+PT0272,50,51.0,1.0,on track with chronological age,False
+PT0273,76,74.5,-1.5,good — physiologically younger than calendar age,False
+PT0274,30,39.6,9.6,significantly accelerated aging,True
+PT0275,85,82.6,-2.4,good — physiologically younger than calendar age,False
+PT0276,55,50.0,-5.0,excellent — aging well below calendar age,False
+PT0277,40,40.8,0.8,on track with chronological age,False
+PT0278,72,68.2,-3.8,good — physiologically younger than calendar age,False
+PT0279,19,25.9,6.9,significantly accelerated aging,True
+PT0280,56,59.6,3.6,mildly accelerated aging,False
+PT0281,23,19.8,-3.2,good — physiologically younger than calendar age,False
+PT0282,43,36.1,-6.9,excellent — aging well below calendar age,False
+PT0283,67,63.7,-3.3,good — physiologically younger than calendar age,False
+PT0284,38,34.8,-3.2,good — physiologically younger than calendar age,False
+PT0285,45,51.4,6.4,significantly accelerated aging,True
+PT0286,52,58.3,6.3,significantly accelerated aging,True
+PT0287,52,49.3,-2.7,good — physiologically younger than calendar age,False
+PT0288,45,44.6,-0.4,on track with chronological age,False
+PT0289,49,47.0,-2.0,good — physiologically younger than calendar age,False
+PT0290,39,43.4,4.4,mildly accelerated aging,False
+PT0291,67,63.3,-3.7,good — physiologically younger than calendar age,False
+PT0292,40,37.8,-2.2,good — physiologically younger than calendar age,False
+PT0293,44,40.5,-3.5,good — physiologically younger than calendar age,False
+PT0294,82,79.2,-2.8,good — physiologically younger than calendar age,False
+PT0295,66,67.1,1.1,mildly accelerated aging,False
+PT0296,57,43.9,-13.1,excellent — aging well below calendar age,False
+PT0297,73,68.3,-4.7,good — physiologically younger than calendar age,False
+PT0298,50,62.1,12.1,significantly accelerated aging,True
+PT0299,56,55.0,-1.0,good — physiologically younger than calendar age,False
+PT0300,46,46.5,0.5,on track with chronological age,False
+PT0301,31,29.8,-1.2,good — physiologically younger than calendar age,False
+PT0302,41,41.4,0.4,on track with chronological age,False
+PT0303,42,38.9,-3.1,good — physiologically younger than calendar age,False
+PT0304,38,39.5,1.5,mildly accelerated aging,False
+PT0305,45,43.5,-1.5,good — physiologically younger than calendar age,False
+PT0306,41,63.1,22.1,significantly accelerated aging,True
+PT0307,30,35.2,5.2,significantly accelerated aging,True
+PT0308,24,28.9,4.9,mildly accelerated aging,False
+PT0309,36,41.2,5.2,significantly accelerated aging,True
+PT0310,54,55.0,1.0,on track with chronological age,False
+PT0311,48,50.5,2.5,mildly accelerated aging,False
+PT0312,36,33.9,-2.1,good — physiologically younger than calendar age,False
+PT0313,46,39.1,-6.9,excellent — aging well below calendar age,False
+PT0314,71,67.1,-3.9,good — physiologically younger than calendar age,False
+PT0315,36,39.3,3.3,mildly accelerated aging,False
+PT0316,41,30.1,-10.9,excellent — aging well below calendar age,False
+PT0317,57,59.9,2.9,mildly accelerated aging,False
+PT0318,62,57.2,-4.8,good — physiologically younger than calendar age,False
+PT0319,54,50.4,-3.6,good — physiologically younger than calendar age,False
+PT0320,47,51.8,4.8,mildly accelerated aging,False
+PT0321,52,54.4,2.4,mildly accelerated aging,False
+PT0322,90,81.6,-8.4,excellent — aging well below calendar age,False
+PT0323,31,27.7,-3.3,good — physiologically younger than calendar age,False
+PT0324,19,28.4,9.4,significantly accelerated aging,True
+PT0325,52,56.7,4.7,mildly accelerated aging,False
+PT0326,76,70.8,-5.2,excellent — aging well below calendar age,False
+PT0327,33,29.0,-4.0,good — physiologically younger than calendar age,False
+PT0328,47,50.3,3.3,mildly accelerated aging,False
+PT0329,70,66.6,-3.4,good — physiologically younger than calendar age,False
+PT0330,31,31.5,0.5,on track with chronological age,False
+PT0331,40,42.8,2.8,mildly accelerated aging,False
+PT0332,47,64.2,17.2,significantly accelerated aging,True
+PT0333,39,42.8,3.8,mildly accelerated aging,False
+PT0334,65,65.9,0.9,on track with chronological age,False
+PT0335,54,56.8,2.8,mildly accelerated aging,False
+PT0336,48,40.5,-7.5,excellent — aging well below calendar age,False
+PT0337,63,66.1,3.1,mildly accelerated aging,False
+PT0338,61,61.1,0.1,on track with chronological age,False
+PT0339,42,35.6,-6.4,excellent — aging well below calendar age,False
+PT0340,47,55.9,8.9,significantly accelerated aging,True
+PT0341,65,66.5,1.5,mildly accelerated aging,False
+PT0342,84,69.4,-14.6,excellent — aging well below calendar age,False
+PT0343,21,19.2,-1.8,good — physiologically younger than calendar age,False
+PT0344,51,46.2,-4.8,good — physiologically younger than calendar age,False
+PT0345,23,39.5,16.5,significantly accelerated aging,True
+PT0346,69,58.5,-10.5,excellent — aging well below calendar age,False
+PT0347,32,33.5,1.5,mildly accelerated aging,False
+PT0348,47,45.1,-1.9,good — physiologically younger than calendar age,False
+PT0349,54,53.9,-0.1,on track with chronological age,False
+PT0350,48,36.0,-12.0,excellent — aging well below calendar age,False
+PT0351,60,60.6,0.6,on track with chronological age,False
+PT0352,60,60.0,0.0,on track with chronological age,False
+PT0353,28,25.8,-2.2,good — physiologically younger than calendar age,False
+PT0354,23,33.6,10.6,significantly accelerated aging,True
+PT0355,54,59.6,5.6,significantly accelerated aging,True
+PT0356,48,43.0,-5.0,excellent — aging well below calendar age,False
+PT0357,47,46.3,-0.7,on track with chronological age,False
+PT0358,54,45.6,-8.4,excellent — aging well below calendar age,False
+PT0359,43,43.0,0.0,on track with chronological age,False
+PT0360,60,61.5,1.5,mildly accelerated aging,False
+PT0361,52,47.3,-4.7,good — physiologically younger than calendar age,False
+PT0362,59,55.9,-3.1,good — physiologically younger than calendar age,False
+PT0363,37,35.5,-1.5,good — physiologically younger than calendar age,False
+PT0364,61,57.8,-3.2,good — physiologically younger than calendar age,False
+PT0365,49,46.5,-2.5,good — physiologically younger than calendar age,False
+PT0366,45,44.1,-0.9,on track with chronological age,False
+PT0367,41,39.2,-1.8,good — physiologically younger than calendar age,False
+PT0368,58,57.7,-0.3,on track with chronological age,False
+PT0369,18,25.3,7.3,significantly accelerated aging,True
+PT0370,66,64.8,-1.2,good — physiologically younger than calendar age,False
+PT0371,61,57.3,-3.7,good — physiologically younger than calendar age,False
+PT0372,76,79.5,3.5,mildly accelerated aging,False
+PT0373,57,59.4,2.4,mildly accelerated aging,False
+PT0374,70,70.4,0.4,on track with chronological age,False
+PT0375,43,42.4,-0.6,on track with chronological age,False
+PT0376,54,54.7,0.7,on track with chronological age,False
+PT0377,40,33.4,-6.6,excellent — aging well below calendar age,False
+PT0378,71,76.5,5.5,significantly accelerated aging,True
+PT0379,33,36.1,3.1,mildly accelerated aging,False
+PT0380,18,21.0,3.0,mildly accelerated aging,False
+PT0381,53,53.3,0.3,on track with chronological age,False
+PT0382,35,34.3,-0.7,on track with chronological age,False
+PT0383,61,69.3,8.3,significantly accelerated aging,True
+PT0384,55,50.9,-4.1,good — physiologically younger than calendar age,False
+PT0385,41,43.5,2.5,mildly accelerated aging,False
+PT0386,42,47.8,5.8,significantly accelerated aging,True
+PT0387,50,52.9,2.9,mildly accelerated aging,False
+PT0388,29,22.6,-6.4,excellent — aging well below calendar age,False
+PT0389,24,28.1,4.1,mildly accelerated aging,False
+PT0390,36,27.7,-8.3,excellent — aging well below calendar age,False
+PT0391,18,25.7,7.7,significantly accelerated aging,True
+PT0392,46,40.9,-5.1,excellent — aging well below calendar age,False
+PT0393,77,69.2,-7.8,excellent — aging well below calendar age,False
+PT0394,32,31.6,-0.4,on track with chronological age,False
+PT0395,44,45.7,1.7,mildly accelerated aging,False
+PT0396,55,58.5,3.5,mildly accelerated aging,False
+PT0397,35,27.4,-7.6,excellent — aging well below calendar age,False
+PT0398,63,66.1,3.1,mildly accelerated aging,False
+PT0399,64,60.0,-4.0,good — physiologically younger than calendar age,False
+PT0400,35,40.2,5.2,significantly accelerated aging,True
+PT0401,62,61.8,-0.2,on track with chronological age,False
+PT0402,28,27.4,-0.6,on track with chronological age,False
+PT0403,34,34.8,0.8,on track with chronological age,False
+PT0404,36,43.8,7.8,significantly accelerated aging,True
+PT0405,48,50.2,2.2,mildly accelerated aging,False
+PT0406,33,34.7,1.7,mildly accelerated aging,False
+PT0407,82,73.2,-8.8,excellent — aging well below calendar age,False
+PT0408,51,54.0,3.0,mildly accelerated aging,False
+PT0409,62,66.3,4.3,mildly accelerated aging,False
+PT0410,67,73.5,6.5,significantly accelerated aging,True
+PT0411,58,55.4,-2.6,good — physiologically younger than calendar age,False
+PT0412,62,65.0,3.0,mildly accelerated aging,False
+PT0413,90,84.1,-5.9,excellent — aging well below calendar age,False
+PT0414,59,58.5,-0.5,on track with chronological age,False
+PT0415,32,34.5,2.5,mildly accelerated aging,False
+PT0416,52,56.5,4.5,mildly accelerated aging,False
+PT0417,60,50.5,-9.5,excellent — aging well below calendar age,False
+PT0418,65,56.1,-8.9,excellent — aging well below calendar age,False
+PT0419,70,66.1,-3.9,good — physiologically younger than calendar age,False
+PT0420,52,44.9,-7.1,excellent — aging well below calendar age,False
+PT0421,45,35.5,-9.5,excellent — aging well below calendar age,False
+PT0422,46,39.7,-6.3,excellent — aging well below calendar age,False
+PT0423,69,67.9,-1.1,good — physiologically younger than calendar age,False
+PT0424,63,59.2,-3.8,good — physiologically younger than calendar age,False
+PT0425,44,35.4,-8.6,excellent — aging well below calendar age,False
+PT0426,45,42.3,-2.7,good — physiologically younger than calendar age,False
+PT0427,45,38.1,-6.9,excellent — aging well below calendar age,False
+PT0428,72,72.2,0.2,on track with chronological age,False
+PT0429,28,26.4,-1.6,good — physiologically younger than calendar age,False
+PT0430,20,35.5,15.5,significantly accelerated aging,True
+PT0431,44,53.2,9.2,significantly accelerated aging,True
+PT0432,87,81.9,-5.1,excellent — aging well below calendar age,False
+PT0433,90,83.4,-6.6,excellent — aging well below calendar age,False
+PT0434,31,33.4,2.4,mildly accelerated aging,False
+PT0435,83,82.1,-0.9,on track with chronological age,False
+PT0436,56,55.3,-0.7,on track with chronological age,False
+PT0437,47,43.3,-3.7,good — physiologically younger than calendar age,False
+PT0438,54,56.1,2.1,mildly accelerated aging,False
+PT0439,47,47.2,0.2,on track with chronological age,False
+PT0440,58,61.4,3.4,mildly accelerated aging,False
+PT0441,18,23.5,5.5,significantly accelerated aging,True
+PT0442,64,61.5,-2.5,good — physiologically younger than calendar age,False
+PT0443,48,48.0,0.0,on track with chronological age,False
+PT0444,78,74.7,-3.3,good — physiologically younger than calendar age,False
+PT0445,31,32.5,1.5,mildly accelerated aging,False
+PT0446,18,24.8,6.8,significantly accelerated aging,True
+PT0447,67,78.5,11.5,significantly accelerated aging,True
+PT0448,40,45.6,5.6,significantly accelerated aging,True
+PT0449,24,34.8,10.8,significantly accelerated aging,True
+PT0450,29,25.5,-3.5,good — physiologically younger than calendar age,False
+PT0451,40,46.4,6.4,significantly accelerated aging,True
+PT0452,61,71.6,10.6,significantly accelerated aging,True
+PT0453,59,53.0,-6.0,excellent — aging well below calendar age,False
+PT0454,54,43.8,-10.2,excellent — aging well below calendar age,False
+PT0455,50,64.3,14.3,significantly accelerated aging,True
+PT0456,70,64.8,-5.2,excellent — aging well below calendar age,False
+PT0457,37,41.8,4.8,mildly accelerated aging,False
+PT0458,70,68.5,-1.5,good — physiologically younger than calendar age,False
+PT0459,40,29.7,-10.3,excellent — aging well below calendar age,False
+PT0460,60,57.5,-2.5,good — physiologically younger than calendar age,False
+PT0461,19,48.4,29.4,significantly accelerated aging,True
+PT0462,57,62.8,5.8,significantly accelerated aging,True
+PT0463,25,28.7,3.7,mildly accelerated aging,False
+PT0464,53,55.8,2.8,mildly accelerated aging,False
+PT0465,53,57.9,4.9,mildly accelerated aging,False
+PT0466,29,29.8,0.8,on track with chronological age,False
+PT0467,58,58.4,0.4,on track with chronological age,False
+PT0468,48,49.5,1.5,mildly accelerated aging,False
+PT0469,51,47.6,-3.4,good — physiologically younger than calendar age,False
+PT0470,62,65.5,3.5,mildly accelerated aging,False
+PT0471,62,58.2,-3.8,good — physiologically younger than calendar age,False
+PT0472,65,65.2,0.2,on track with chronological age,False
+PT0473,42,43.5,1.5,mildly accelerated aging,False
+PT0474,43,39.9,-3.1,good — physiologically younger than calendar age,False
+PT0475,64,68.2,4.2,mildly accelerated aging,False
+PT0476,18,19.9,1.9,mildly accelerated aging,False
+PT0477,28,39.9,11.9,significantly accelerated aging,True
+PT0478,51,51.3,0.3,on track with chronological age,False
+PT0479,29,35.6,6.6,significantly accelerated aging,True
+PT0480,54,60.2,6.2,significantly accelerated aging,True
+PT0481,37,35.9,-1.1,good — physiologically younger than calendar age,False
+PT0482,76,60.7,-15.3,excellent — aging well below calendar age,False
+PT0483,72,66.7,-5.3,excellent — aging well below calendar age,False
+PT0484,44,49.9,5.9,significantly accelerated aging,True
+PT0485,71,66.0,-5.0,excellent — aging well below calendar age,False
+PT0486,47,42.0,-5.0,excellent — aging well below calendar age,False
+PT0487,44,32.1,-11.9,excellent — aging well below calendar age,False
+PT0488,89,84.6,-4.4,good — physiologically younger than calendar age,False
+PT0489,85,77.3,-7.7,excellent — aging well below calendar age,False
+PT0490,59,60.8,1.8,mildly accelerated aging,False
+PT0491,67,71.2,4.2,mildly accelerated aging,False
+PT0492,62,60.9,-1.1,good — physiologically younger than calendar age,False
+PT0493,30,20.4,-9.6,excellent — aging well below calendar age,False
+PT0494,42,34.8,-7.2,excellent — aging well below calendar age,False
+PT0495,54,61.9,7.9,significantly accelerated aging,True
+PT0496,78,80.1,2.1,mildly accelerated aging,False
+PT0497,72,72.9,0.9,on track with chronological age,False
+PT0498,33,36.9,3.9,mildly accelerated aging,False
+PT0499,64,56.1,-7.9,excellent — aging well below calendar age,False
+PT0500,47,46.0,-1.0,good — physiologically younger than calendar age,False
+PT0501,69,68.9,-0.1,on track with chronological age,False
+PT0502,54,49.6,-4.4,good — physiologically younger than calendar age,False
+PT0503,30,39.3,9.3,significantly accelerated aging,True
+PT0504,66,57.8,-8.2,excellent — aging well below calendar age,False
+PT0505,86,83.6,-2.4,good — physiologically younger than calendar age,False
+PT0506,21,24.2,3.2,mildly accelerated aging,False
+PT0507,33,38.9,5.9,significantly accelerated aging,True
+PT0508,90,83.0,-7.0,excellent — aging well below calendar age,False
+PT0509,30,39.6,9.6,significantly accelerated aging,True
+PT0510,41,49.3,8.3,significantly accelerated aging,True
+PT0511,61,53.3,-7.7,excellent — aging well below calendar age,False
+PT0512,68,72.2,4.2,mildly accelerated aging,False
+PT0513,38,42.0,4.0,mildly accelerated aging,False
+PT0514,52,43.8,-8.2,excellent — aging well below calendar age,False
+PT0515,54,57.4,3.4,mildly accelerated aging,False
+PT0516,39,43.8,4.8,mildly accelerated aging,False
+PT0517,28,32.4,4.4,mildly accelerated aging,False
+PT0518,42,39.0,-3.0,good — physiologically younger than calendar age,False
+PT0519,65,57.1,-7.9,excellent — aging well below calendar age,False
+PT0520,32,29.9,-2.1,good — physiologically younger than calendar age,False
+PT0521,67,68.8,1.8,mildly accelerated aging,False
+PT0522,39,31.9,-7.1,excellent — aging well below calendar age,False
+PT0523,26,30.9,4.9,mildly accelerated aging,False
+PT0524,62,55.6,-6.4,excellent — aging well below calendar age,False
+PT0525,31,31.7,0.7,on track with chronological age,False
+PT0526,69,73.4,4.4,mildly accelerated aging,False
+PT0527,58,63.4,5.4,significantly accelerated aging,True
+PT0528,66,69.5,3.5,mildly accelerated aging,False
+PT0529,76,63.6,-12.4,excellent — aging well below calendar age,False
+PT0530,35,30.9,-4.1,good — physiologically younger than calendar age,False
+PT0531,55,51.4,-3.6,good — physiologically younger than calendar age,False
+PT0532,45,46.7,1.7,mildly accelerated aging,False
+PT0533,53,46.8,-6.2,excellent — aging well below calendar age,False
+PT0534,58,56.7,-1.3,good — physiologically younger than calendar age,False
+PT0535,65,69.8,4.8,mildly accelerated aging,False
+PT0536,51,61.2,10.2,significantly accelerated aging,True
+PT0537,62,55.4,-6.6,excellent — aging well below calendar age,False
+PT0538,28,29.6,1.6,mildly accelerated aging,False
+PT0539,55,47.3,-7.7,excellent — aging well below calendar age,False
+PT0540,34,28.5,-5.5,excellent — aging well below calendar age,False
+PT0541,53,43.4,-9.6,excellent — aging well below calendar age,False
+PT0542,44,46.3,2.3,mildly accelerated aging,False
+PT0543,46,50.1,4.1,mildly accelerated aging,False
+PT0544,27,23.5,-3.5,good — physiologically younger than calendar age,False
+PT0545,54,58.3,4.3,mildly accelerated aging,False
+PT0546,21,26.8,5.8,significantly accelerated aging,True
+PT0547,76,72.3,-3.7,good — physiologically younger than calendar age,False
+PT0548,66,63.9,-2.1,good — physiologically younger than calendar age,False
+PT0549,48,45.2,-2.8,good — physiologically younger than calendar age,False
+PT0550,47,43.7,-3.3,good — physiologically younger than calendar age,False
+PT0551,52,47.3,-4.7,good — physiologically younger than calendar age,False
+PT0552,64,46.0,-18.0,excellent — aging well below calendar age,False
+PT0553,46,32.4,-13.6,excellent — aging well below calendar age,False
+PT0554,32,35.4,3.4,mildly accelerated aging,False
+PT0555,38,37.8,-0.2,on track with chronological age,False
+PT0556,81,73.7,-7.3,excellent — aging well below calendar age,False
+PT0557,37,27.5,-9.5,excellent — aging well below calendar age,False
+PT0558,90,81.0,-9.0,excellent — aging well below calendar age,False
+PT0559,38,43.5,5.5,significantly accelerated aging,True
+PT0560,41,43.5,2.5,mildly accelerated aging,False
+PT0561,46,49.0,3.0,mildly accelerated aging,False
+PT0562,22,21.4,-0.6,on track with chronological age,False
+PT0563,69,67.3,-1.7,good — physiologically younger than calendar age,False
+PT0564,59,53.6,-5.4,excellent — aging well below calendar age,False
+PT0565,48,50.7,2.7,mildly accelerated aging,False
+PT0566,54,59.6,5.6,significantly accelerated aging,True
+PT0567,40,45.1,5.1,significantly accelerated aging,True
+PT0568,51,45.9,-5.1,excellent — aging well below calendar age,False
+PT0569,67,60.2,-6.8,excellent — aging well below calendar age,False
+PT0570,18,21.8,3.8,mildly accelerated aging,False
+PT0571,72,64.5,-7.5,excellent — aging well below calendar age,False
+PT0572,21,22.2,1.2,mildly accelerated aging,False
+PT0573,44,47.8,3.8,mildly accelerated aging,False
+PT0574,54,52.4,-1.6,good — physiologically younger than calendar age,False
+PT0575,47,49.3,2.3,mildly accelerated aging,False
+PT0576,23,26.2,3.2,mildly accelerated aging,False
+PT0577,73,73.5,0.5,on track with chronological age,False
+PT0578,56,55.6,-0.4,on track with chronological age,False
+PT0579,26,31.3,5.3,significantly accelerated aging,True
+PT0580,40,42.3,2.3,mildly accelerated aging,False
+PT0581,60,61.4,1.4,mildly accelerated aging,False
+PT0582,51,49.2,-1.8,good — physiologically younger than calendar age,False
+PT0583,77,69.7,-7.3,excellent — aging well below calendar age,False
+PT0584,25,29.6,4.6,mildly accelerated aging,False
+PT0585,59,62.6,3.6,mildly accelerated aging,False
+PT0586,67,69.4,2.4,mildly accelerated aging,False
+PT0587,69,63.9,-5.1,excellent — aging well below calendar age,False
+PT0588,21,27.5,6.5,significantly accelerated aging,True
+PT0589,48,49.0,1.0,on track with chronological age,False
+PT0590,42,34.4,-7.6,excellent — aging well below calendar age,False
+PT0591,60,56.1,-3.9,good — physiologically younger than calendar age,False
+PT0592,76,68.9,-7.1,excellent — aging well below calendar age,False
+PT0593,51,55.0,4.0,mildly accelerated aging,False
+PT0594,43,45.0,2.0,mildly accelerated aging,False
+PT0595,18,25.5,7.5,significantly accelerated aging,True
+PT0596,37,42.0,5.0,mildly accelerated aging,False
+PT0597,39,38.4,-0.6,on track with chronological age,False
+PT0598,68,66.6,-1.4,good — physiologically younger than calendar age,False
+PT0599,49,47.8,-1.2,good — physiologically younger than calendar age,False
+PT0600,69,69.7,0.7,on track with chronological age,False
+PT0601,68,75.7,7.7,significantly accelerated aging,True
+PT0602,67,60.3,-6.7,excellent — aging well below calendar age,False
+PT0603,70,69.8,-0.2,on track with chronological age,False
+PT0604,73,76.6,3.6,mildly accelerated aging,False
+PT0605,52,53.7,1.7,mildly accelerated aging,False
+PT0606,52,53.7,1.7,mildly accelerated aging,False
+PT0607,64,58.8,-5.2,excellent — aging well below calendar age,False
+PT0608,45,38.7,-6.3,excellent — aging well below calendar age,False
+PT0609,58,56.1,-1.9,good — physiologically younger than calendar age,False
+PT0610,46,47.4,1.4,mildly accelerated aging,False
+PT0611,27,26.4,-0.6,on track with chronological age,False
+PT0612,57,60.6,3.6,mildly accelerated aging,False
+PT0613,46,48.1,2.1,mildly accelerated aging,False
+PT0614,90,80.7,-9.3,excellent — aging well below calendar age,False
+PT0615,68,59.6,-8.4,excellent — aging well below calendar age,False
+PT0616,74,65.7,-8.3,excellent — aging well below calendar age,False
+PT0617,68,71.3,3.3,mildly accelerated aging,False
+PT0618,45,47.3,2.3,mildly accelerated aging,False
+PT0619,57,59.0,2.0,mildly accelerated aging,False
+PT0620,79,76.4,-2.6,good — physiologically younger than calendar age,False
+PT0621,64,60.7,-3.3,good — physiologically younger than calendar age,False
+PT0622,56,63.1,7.1,significantly accelerated aging,True
+PT0623,90,84.1,-5.9,excellent — aging well below calendar age,False
+PT0624,56,61.3,5.3,significantly accelerated aging,True
+PT0625,72,66.3,-5.7,excellent — aging well below calendar age,False
+PT0626,60,56.5,-3.5,good — physiologically younger than calendar age,False
+PT0627,28,31.0,3.0,mildly accelerated aging,False
+PT0628,83,85.0,2.0,mildly accelerated aging,False
+PT0629,41,44.4,3.4,mildly accelerated aging,False
+PT0630,43,50.4,7.4,significantly accelerated aging,True
+PT0631,64,54.8,-9.2,excellent — aging well below calendar age,False
+PT0632,69,60.2,-8.8,excellent — aging well below calendar age,False
+PT0633,73,62.4,-10.6,excellent — aging well below calendar age,False
+PT0634,54,52.8,-1.2,good — physiologically younger than calendar age,False
+PT0635,45,36.0,-9.0,excellent — aging well below calendar age,False
+PT0636,65,66.3,1.3,mildly accelerated aging,False
+PT0637,51,54.2,3.2,mildly accelerated aging,False
+PT0638,43,43.4,0.4,on track with chronological age,False
+PT0639,23,29.4,6.4,significantly accelerated aging,True
+PT0640,44,43.4,-0.6,on track with chronological age,False
+PT0641,51,40.0,-11.0,excellent — aging well below calendar age,False
+PT0642,18,33.0,15.0,significantly accelerated aging,True
+PT0643,55,50.7,-4.3,good — physiologically younger than calendar age,False
+PT0644,62,50.4,-11.6,excellent — aging well below calendar age,False
+PT0645,56,64.6,8.6,significantly accelerated aging,True
+PT0646,69,66.6,-2.4,good — physiologically younger than calendar age,False
+PT0647,64,61.1,-2.9,good — physiologically younger than calendar age,False
+PT0648,48,47.4,-0.6,on track with chronological age,False
+PT0649,68,65.3,-2.7,good — physiologically younger than calendar age,False
+PT0650,29,32.9,3.9,mildly accelerated aging,False
+PT0651,34,34.6,0.6,on track with chronological age,False
+PT0652,45,48.5,3.5,mildly accelerated aging,False
+PT0653,51,49.4,-1.6,good — physiologically younger than calendar age,False
+PT0654,25,29.1,4.1,mildly accelerated aging,False
+PT0655,48,45.0,-3.0,good — physiologically younger than calendar age,False
+PT0656,24,27.8,3.8,mildly accelerated aging,False
+PT0657,63,66.5,3.5,mildly accelerated aging,False
+PT0658,74,73.3,-0.7,on track with chronological age,False
+PT0659,37,43.3,6.3,significantly accelerated aging,True
+PT0660,34,37.0,3.0,mildly accelerated aging,False
+PT0661,54,50.6,-3.4,good — physiologically younger than calendar age,False
+PT0662,63,69.0,6.0,significantly accelerated aging,True
+PT0663,63,62.7,-0.3,on track with chronological age,False
+PT0664,77,69.3,-7.7,excellent — aging well below calendar age,False
+PT0665,67,62.0,-5.0,excellent — aging well below calendar age,False
+PT0666,42,44.4,2.4,mildly accelerated aging,False
+PT0667,63,61.5,-1.5,good — physiologically younger than calendar age,False
+PT0668,19,30.4,11.4,significantly accelerated aging,True
+PT0669,29,24.7,-4.3,good — physiologically younger than calendar age,False
+PT0670,52,54.2,2.2,mildly accelerated aging,False
+PT0671,81,77.5,-3.5,good — physiologically younger than calendar age,False
+PT0672,43,47.0,4.0,mildly accelerated aging,False
+PT0673,47,45.2,-1.8,good — physiologically younger than calendar age,False
+PT0674,59,52.2,-6.8,excellent — aging well below calendar age,False
+PT0675,68,63.0,-5.0,excellent — aging well below calendar age,False
+PT0676,27,30.6,3.6,mildly accelerated aging,False
+PT0677,31,26.4,-4.6,good — physiologically younger than calendar age,False
+PT0678,72,70.5,-1.5,good — physiologically younger than calendar age,False
+PT0679,78,73.5,-4.5,good — physiologically younger than calendar age,False
+PT0680,68,67.2,-0.8,on track with chronological age,False
+PT0681,62,59.7,-2.3,good — physiologically younger than calendar age,False
+PT0682,57,60.2,3.2,mildly accelerated aging,False
+PT0683,35,28.5,-6.5,excellent — aging well below calendar age,False
+PT0684,24,24.6,0.6,on track with chronological age,False
+PT0685,48,48.9,0.9,on track with chronological age,False
+PT0686,64,68.3,4.3,mildly accelerated aging,False
+PT0687,57,53.9,-3.1,good — physiologically younger than calendar age,False
+PT0688,57,62.1,5.1,significantly accelerated aging,True
+PT0689,54,62.7,8.7,significantly accelerated aging,True
+PT0690,66,62.7,-3.3,good — physiologically younger than calendar age,False
+PT0691,78,83.2,5.2,significantly accelerated aging,True
+PT0692,61,63.1,2.1,mildly accelerated aging,False
+PT0693,70,63.4,-6.6,excellent — aging well below calendar age,False
+PT0694,51,45.1,-5.9,excellent — aging well below calendar age,False
+PT0695,69,73.2,4.2,mildly accelerated aging,False
+PT0696,57,57.3,0.3,on track with chronological age,False
+PT0697,59,68.3,9.3,significantly accelerated aging,True
+PT0698,58,62.5,4.5,mildly accelerated aging,False
+PT0699,57,54.8,-2.2,good — physiologically younger than calendar age,False
+PT0700,45,47.7,2.7,mildly accelerated aging,False
+PT0701,55,55.4,0.4,on track with chronological age,False
+PT0702,76,78.7,2.7,mildly accelerated aging,False
+PT0703,86,77.3,-8.7,excellent — aging well below calendar age,False
+PT0704,62,62.2,0.2,on track with chronological age,False
+PT0705,25,22.8,-2.2,good — physiologically younger than calendar age,False
+PT0706,54,54.3,0.3,on track with chronological age,False
+PT0707,58,58.0,0.0,on track with chronological age,False
+PT0708,40,34.8,-5.2,excellent — aging well below calendar age,False
+PT0709,24,21.9,-2.1,good — physiologically younger than calendar age,False
+PT0710,41,46.6,5.6,significantly accelerated aging,True
+PT0711,49,53.0,4.0,mildly accelerated aging,False
+PT0712,55,52.8,-2.2,good — physiologically younger than calendar age,False
+PT0713,59,59.7,0.7,on track with chronological age,False
+PT0714,56,51.1,-4.9,good — physiologically younger than calendar age,False
+PT0715,61,60.4,-0.6,on track with chronological age,False
+PT0716,50,52.5,2.5,mildly accelerated aging,False
+PT0717,54,50.4,-3.6,good — physiologically younger than calendar age,False
+PT0718,55,59.5,4.5,mildly accelerated aging,False
+PT0719,63,64.1,1.1,mildly accelerated aging,False
+PT0720,24,26.9,2.9,mildly accelerated aging,False
+PT0721,63,61.3,-1.7,good — physiologically younger than calendar age,False
+PT0722,47,46.1,-0.9,on track with chronological age,False
+PT0723,33,33.4,0.4,on track with chronological age,False
+PT0724,52,57.6,5.6,significantly accelerated aging,True
+PT0725,38,38.4,0.4,on track with chronological age,False
+PT0726,57,60.5,3.5,mildly accelerated aging,False
+PT0727,35,29.1,-5.9,excellent — aging well below calendar age,False
+PT0728,58,61.2,3.2,mildly accelerated aging,False
+PT0729,23,20.3,-2.7,good — physiologically younger than calendar age,False
+PT0730,72,69.5,-2.5,good — physiologically younger than calendar age,False
+PT0731,64,58.5,-5.5,excellent — aging well below calendar age,False
+PT0732,34,42.8,8.8,significantly accelerated aging,True
+PT0733,48,62.5,14.5,significantly accelerated aging,True
+PT0734,44,39.3,-4.7,good — physiologically younger than calendar age,False
+PT0735,68,67.4,-0.6,on track with chronological age,False
+PT0736,64,61.8,-2.2,good — physiologically younger than calendar age,False
+PT0737,36,45.3,9.3,significantly accelerated aging,True
+PT0738,36,47.4,11.4,significantly accelerated aging,True
+PT0739,51,52.7,1.7,mildly accelerated aging,False
+PT0740,33,36.6,3.6,mildly accelerated aging,False
+PT0741,31,31.3,0.3,on track with chronological age,False
+PT0742,49,63.7,14.7,significantly accelerated aging,True
+PT0743,48,42.3,-5.7,excellent — aging well below calendar age,False
+PT0744,37,43.2,6.2,significantly accelerated aging,True
+PT0745,34,32.6,-1.4,good — physiologically younger than calendar age,False
+PT0746,60,59.7,-0.3,on track with chronological age,False
+PT0747,45,47.6,2.6,mildly accelerated aging,False
+PT0748,31,27.0,-4.0,good — physiologically younger than calendar age,False
+PT0749,18,20.6,2.6,mildly accelerated aging,False
+PT0750,54,57.9,3.9,mildly accelerated aging,False
+PT0751,84,81.1,-2.9,good — physiologically younger than calendar age,False
+PT0752,18,20.3,2.3,mildly accelerated aging,False
+PT0753,67,58.7,-8.3,excellent — aging well below calendar age,False
+PT0754,51,51.2,0.2,on track with chronological age,False
+PT0755,61,58.1,-2.9,good — physiologically younger than calendar age,False
+PT0756,79,58.4,-20.6,excellent — aging well below calendar age,False
+PT0757,43,44.5,1.5,mildly accelerated aging,False
+PT0758,61,70.4,9.4,significantly accelerated aging,True
+PT0759,65,61.9,-3.1,good — physiologically younger than calendar age,False
+PT0760,63,62.9,-0.1,on track with chronological age,False
+PT0761,56,49.8,-6.2,excellent — aging well below calendar age,False
+PT0762,61,65.4,4.4,mildly accelerated aging,False
+PT0763,80,74.4,-5.6,excellent — aging well below calendar age,False
+PT0764,80,81.9,1.9,mildly accelerated aging,False
+PT0765,35,31.0,-4.0,good — physiologically younger than calendar age,False
+PT0766,47,42.6,-4.4,good — physiologically younger than calendar age,False
+PT0767,89,77.7,-11.3,excellent — aging well below calendar age,False
+PT0768,27,25.7,-1.3,good — physiologically younger than calendar age,False
+PT0769,20,43.1,23.1,significantly accelerated aging,True
+PT0770,44,54.1,10.1,significantly accelerated aging,True
+PT0771,58,57.6,-0.4,on track with chronological age,False
+PT0772,76,72.0,-4.0,good — physiologically younger than calendar age,False
+PT0773,36,43.5,7.5,significantly accelerated aging,True
+PT0774,34,33.1,-0.9,on track with chronological age,False
+PT0775,48,46.2,-1.8,good — physiologically younger than calendar age,False
+PT0776,18,18.6,0.6,on track with chronological age,False
+PT0777,51,53.3,2.3,mildly accelerated aging,False
+PT0778,65,72.0,7.0,significantly accelerated aging,True
+PT0779,83,74.6,-8.4,excellent — aging well below calendar age,False
+PT0780,84,81.2,-2.8,good — physiologically younger than calendar age,False
+PT0781,61,59.7,-1.3,good — physiologically younger than calendar age,False
+PT0782,47,45.5,-1.5,good — physiologically younger than calendar age,False
+PT0783,35,36.5,1.5,mildly accelerated aging,False
+PT0784,87,83.3,-3.7,good — physiologically younger than calendar age,False
+PT0785,37,41.4,4.4,mildly accelerated aging,False
+PT0786,34,28.1,-5.9,excellent — aging well below calendar age,False
+PT0787,53,57.7,4.7,mildly accelerated aging,False
+PT0788,32,19.1,-12.9,excellent — aging well below calendar age,False
+PT0789,55,53.2,-1.8,good — physiologically younger than calendar age,False
+PT0790,73,71.4,-1.6,good — physiologically younger than calendar age,False
+PT0791,75,71.8,-3.2,good — physiologically younger than calendar age,False
+PT0792,64,64.2,0.2,on track with chronological age,False
+PT0793,61,60.1,-0.9,on track with chronological age,False
+PT0794,65,61.9,-3.1,good — physiologically younger than calendar age,False
+PT0795,53,53.0,-0.0,on track with chronological age,False
+PT0796,67,61.9,-5.1,excellent — aging well below calendar age,False
+PT0797,37,36.1,-0.9,on track with chronological age,False
+PT0798,55,50.0,-5.0,excellent — aging well below calendar age,False
+PT0799,69,66.5,-2.5,good — physiologically younger than calendar age,False
+PT0800,47,47.4,0.4,on track with chronological age,False
+PT0801,28,47.1,19.1,significantly accelerated aging,True
+PT0802,36,38.7,2.7,mildly accelerated aging,False
+PT0803,70,74.0,4.0,mildly accelerated aging,False
+PT0804,34,31.6,-2.4,good — physiologically younger than calendar age,False
+PT0805,53,51.1,-1.9,good — physiologically younger than calendar age,False
+PT0806,34,37.4,3.4,mildly accelerated aging,False
+PT0807,52,50.2,-1.8,good — physiologically younger than calendar age,False
+PT0808,72,67.4,-4.6,good — physiologically younger than calendar age,False
+PT0809,25,25.5,0.5,on track with chronological age,False
+PT0810,18,33.9,15.9,significantly accelerated aging,True
+PT0811,34,22.1,-11.9,excellent — aging well below calendar age,False
+PT0812,28,29.0,1.0,on track with chronological age,False
+PT0813,63,58.8,-4.2,good — physiologically younger than calendar age,False
+PT0814,59,62.0,3.0,mildly accelerated aging,False
+PT0815,80,64.5,-15.5,excellent — aging well below calendar age,False
+PT0816,69,67.8,-1.2,good — physiologically younger than calendar age,False
+PT0817,76,68.0,-8.0,excellent — aging well below calendar age,False
+PT0818,46,45.6,-0.4,on track with chronological age,False
+PT0819,57,51.8,-5.2,excellent — aging well below calendar age,False
+PT0820,60,59.4,-0.6,on track with chronological age,False
+PT0821,46,44.5,-1.5,good — physiologically younger than calendar age,False
+PT0822,65,68.5,3.5,mildly accelerated aging,False
+PT0823,49,55.4,6.4,significantly accelerated aging,True
+PT0824,76,56.7,-19.3,excellent — aging well below calendar age,False
+PT0825,33,35.9,2.9,mildly accelerated aging,False
+PT0826,48,64.1,16.1,significantly accelerated aging,True
+PT0827,30,26.3,-3.7,good — physiologically younger than calendar age,False
+PT0828,36,35.5,-0.5,on track with chronological age,False
+PT0829,20,29.1,9.1,significantly accelerated aging,True
+PT0830,72,72.7,0.7,on track with chronological age,False
+PT0831,30,30.1,0.1,on track with chronological age,False
+PT0832,52,53.2,1.2,mildly accelerated aging,False
+PT0833,34,35.9,1.9,mildly accelerated aging,False
+PT0834,47,45.2,-1.8,good — physiologically younger than calendar age,False
+PT0835,69,58.8,-10.2,excellent — aging well below calendar age,False
+PT0836,53,47.7,-5.3,excellent — aging well below calendar age,False
+PT0837,49,45.7,-3.3,good — physiologically younger than calendar age,False
+PT0838,80,77.4,-2.6,good — physiologically younger than calendar age,False
+PT0839,29,29.5,0.5,on track with chronological age,False
+PT0840,49,48.0,-1.0,good — physiologically younger than calendar age,False
+PT0841,42,46.8,4.8,mildly accelerated aging,False
+PT0842,65,46.4,-18.6,excellent — aging well below calendar age,False
+PT0843,47,46.3,-0.7,on track with chronological age,False
+PT0844,63,62.2,-0.8,on track with chronological age,False
+PT0845,84,80.0,-4.0,good — physiologically younger than calendar age,False
+PT0846,46,43.4,-2.6,good — physiologically younger than calendar age,False
+PT0847,62,63.2,1.2,mildly accelerated aging,False
+PT0848,56,49.4,-6.6,excellent — aging well below calendar age,False
+PT0849,66,58.9,-7.1,excellent — aging well below calendar age,False
+PT0850,35,35.6,0.6,on track with chronological age,False
+PT0851,40,33.8,-6.2,excellent — aging well below calendar age,False
+PT0852,18,20.5,2.5,mildly accelerated aging,False
+PT0853,40,30.6,-9.4,excellent — aging well below calendar age,False
+PT0854,45,48.1,3.1,mildly accelerated aging,False
+PT0855,50,51.1,1.1,mildly accelerated aging,False
+PT0856,18,19.6,1.6,mildly accelerated aging,False
+PT0857,47,45.5,-1.5,good — physiologically younger than calendar age,False
+PT0858,50,46.7,-3.3,good — physiologically younger than calendar age,False
+PT0859,49,49.4,0.4,on track with chronological age,False
+PT0860,18,21.2,3.2,mildly accelerated aging,False
+PT0861,63,68.3,5.3,significantly accelerated aging,True
+PT0862,78,79.5,1.5,mildly accelerated aging,False
+PT0863,68,62.6,-5.4,excellent — aging well below calendar age,False
+PT0864,33,32.0,-1.0,good — physiologically younger than calendar age,False
+PT0865,52,45.5,-6.5,excellent — aging well below calendar age,False
+PT0866,59,58.2,-0.8,on track with chronological age,False
+PT0867,65,64.4,-0.6,on track with chronological age,False
+PT0868,28,27.2,-0.8,on track with chronological age,False
+PT0869,39,36.3,-2.7,good — physiologically younger than calendar age,False
+PT0870,41,43.5,2.5,mildly accelerated aging,False
+PT0871,58,60.5,2.5,mildly accelerated aging,False
+PT0872,77,68.6,-8.4,excellent — aging well below calendar age,False
+PT0873,64,63.8,-0.2,on track with chronological age,False
+PT0874,38,41.7,3.7,mildly accelerated aging,False
+PT0875,43,41.6,-1.4,good — physiologically younger than calendar age,False
+PT0876,64,65.2,1.2,mildly accelerated aging,False
+PT0877,69,72.1,3.1,mildly accelerated aging,False
+PT0878,90,67.4,-22.6,excellent — aging well below calendar age,False
+PT0879,75,70.0,-5.0,excellent — aging well below calendar age,False
+PT0880,67,71.1,4.1,mildly accelerated aging,False
+PT0881,52,53.2,1.2,mildly accelerated aging,False
+PT0882,42,44.7,2.7,mildly accelerated aging,False
+PT0883,63,67.6,4.6,mildly accelerated aging,False
+PT0884,50,39.3,-10.7,excellent — aging well below calendar age,False
+PT0885,52,60.3,8.3,significantly accelerated aging,True
+PT0886,69,63.6,-5.4,excellent — aging well below calendar age,False
+PT0887,52,51.0,-1.0,good — physiologically younger than calendar age,False
+PT0888,65,72.3,7.3,significantly accelerated aging,True
+PT0889,61,56.0,-5.0,excellent — aging well below calendar age,False
+PT0890,90,79.6,-10.4,excellent — aging well below calendar age,False
+PT0891,66,68.7,2.7,mildly accelerated aging,False
+PT0892,75,66.5,-8.5,excellent — aging well below calendar age,False
+PT0893,19,29.1,10.1,significantly accelerated aging,True
+PT0894,61,59.8,-1.2,good — physiologically younger than calendar age,False
+PT0895,33,33.7,0.7,on track with chronological age,False
+PT0896,48,47.6,-0.4,on track with chronological age,False
+PT0897,52,55.0,3.0,mildly accelerated aging,False
+PT0898,79,80.4,1.4,mildly accelerated aging,False
+PT0899,45,52.1,7.1,significantly accelerated aging,True
+PT0900,49,62.7,13.7,significantly accelerated aging,True
+PT0901,84,81.6,-2.4,good — physiologically younger than calendar age,False
+PT0902,75,68.4,-6.6,excellent — aging well below calendar age,False
+PT0903,73,72.8,-0.2,on track with chronological age,False
+PT0904,45,64.6,19.6,significantly accelerated aging,True
+PT0905,72,74.9,2.9,mildly accelerated aging,False
+PT0906,60,61.0,1.0,on track with chronological age,False
+PT0907,59,61.3,2.3,mildly accelerated aging,False
+PT0908,49,46.2,-2.8,good — physiologically younger than calendar age,False
+PT0909,36,53.2,17.2,significantly accelerated aging,True
+PT0910,83,83.4,0.4,on track with chronological age,False
+PT0911,55,59.7,4.7,mildly accelerated aging,False
+PT0912,43,41.6,-1.4,good — physiologically younger than calendar age,False
+PT0913,54,67.8,13.8,significantly accelerated aging,True
+PT0914,68,63.6,-4.4,good — physiologically younger than calendar age,False
+PT0915,62,47.5,-14.5,excellent — aging well below calendar age,False
+PT0916,72,68.5,-3.5,good — physiologically younger than calendar age,False
+PT0917,42,41.4,-0.6,on track with chronological age,False
+PT0918,30,32.2,2.2,mildly accelerated aging,False
+PT0919,63,65.0,2.0,mildly accelerated aging,False
+PT0920,74,66.1,-7.9,excellent — aging well below calendar age,False
+PT0921,37,36.5,-0.5,on track with chronological age,False
+PT0922,56,56.6,0.6,on track with chronological age,False
+PT0923,47,33.9,-13.1,excellent — aging well below calendar age,False
+PT0924,25,32.9,7.9,significantly accelerated aging,True
+PT0925,48,51.6,3.6,mildly accelerated aging,False
+PT0926,58,49.8,-8.2,excellent — aging well below calendar age,False
+PT0927,20,32.0,12.0,significantly accelerated aging,True
+PT0928,43,36.1,-6.9,excellent — aging well below calendar age,False
+PT0929,41,39.2,-1.8,good — physiologically younger than calendar age,False
+PT0930,66,67.2,1.2,mildly accelerated aging,False
+PT0931,35,48.8,13.8,significantly accelerated aging,True
+PT0932,26,36.6,10.6,significantly accelerated aging,True
+PT0933,29,33.6,4.6,mildly accelerated aging,False
+PT0934,86,82.9,-3.1,good — physiologically younger than calendar age,False
+PT0935,33,38.5,5.5,significantly accelerated aging,True
+PT0936,49,60.1,11.1,significantly accelerated aging,True
+PT0937,68,71.5,3.5,mildly accelerated aging,False
+PT0938,60,69.6,9.6,significantly accelerated aging,True
+PT0939,32,30.1,-1.9,good — physiologically younger than calendar age,False
+PT0940,44,42.5,-1.5,good — physiologically younger than calendar age,False
+PT0941,58,62.7,4.7,mildly accelerated aging,False
+PT0942,57,55.0,-2.0,good — physiologically younger than calendar age,False
+PT0943,58,59.8,1.8,mildly accelerated aging,False
+PT0944,50,45.3,-4.7,good — physiologically younger than calendar age,False
+PT0945,51,50.3,-0.7,on track with chronological age,False
+PT0946,48,50.5,2.5,mildly accelerated aging,False
+PT0947,63,62.0,-1.0,good — physiologically younger than calendar age,False
+PT0948,22,27.3,5.3,significantly accelerated aging,True
+PT0949,66,65.1,-0.9,on track with chronological age,False
+PT0950,58,49.3,-8.7,excellent — aging well below calendar age,False
+PT0951,46,66.5,20.5,significantly accelerated aging,True
+PT0952,74,75.9,1.9,mildly accelerated aging,False
+PT0953,38,34.4,-3.6,good — physiologically younger than calendar age,False
+PT0954,28,27.9,-0.1,on track with chronological age,False
+PT0955,37,43.2,6.2,significantly accelerated aging,True
+PT0956,33,49.5,16.5,significantly accelerated aging,True
+PT0957,45,43.2,-1.8,good — physiologically younger than calendar age,False
+PT0958,67,64.2,-2.8,good — physiologically younger than calendar age,False
+PT0959,57,49.9,-7.1,excellent — aging well below calendar age,False
+PT0960,46,41.3,-4.7,good — physiologically younger than calendar age,False
+PT0961,47,45.3,-1.7,good — physiologically younger than calendar age,False
+PT0962,55,47.3,-7.7,excellent — aging well below calendar age,False
+PT0963,42,47.8,5.8,significantly accelerated aging,True
+PT0964,60,59.4,-0.6,on track with chronological age,False
+PT0965,30,28.9,-1.1,good — physiologically younger than calendar age,False
+PT0966,36,35.2,-0.8,on track with chronological age,False
+PT0967,53,55.5,2.5,mildly accelerated aging,False
+PT0968,57,57.0,-0.0,on track with chronological age,False
+PT0969,20,32.4,12.4,significantly accelerated aging,True
+PT0970,41,48.1,7.1,significantly accelerated aging,True
+PT0971,37,40.5,3.5,mildly accelerated aging,False
+PT0972,47,59.5,12.5,significantly accelerated aging,True
+PT0973,37,38.9,1.9,mildly accelerated aging,False
+PT0974,25,21.5,-3.5,good — physiologically younger than calendar age,False
+PT0975,52,44.7,-7.3,excellent — aging well below calendar age,False
+PT0976,76,72.6,-3.4,good — physiologically younger than calendar age,False
+PT0977,31,28.9,-2.1,good — physiologically younger than calendar age,False
+PT0978,37,38.0,1.0,on track with chronological age,False
+PT0979,37,44.0,7.0,significantly accelerated aging,True
+PT0980,60,61.1,1.1,mildly accelerated aging,False
+PT0981,38,31.9,-6.1,excellent — aging well below calendar age,False
+PT0982,24,28.2,4.2,mildly accelerated aging,False
+PT0983,76,88.4,12.4,significantly accelerated aging,True
+PT0984,57,48.0,-9.0,excellent — aging well below calendar age,False
+PT0985,49,58.9,9.9,significantly accelerated aging,True
+PT0986,67,60.2,-6.8,excellent — aging well below calendar age,False
+PT0987,30,30.4,0.4,on track with chronological age,False
+PT0988,43,41.9,-1.1,good — physiologically younger than calendar age,False
+PT0989,48,59.4,11.4,significantly accelerated aging,True
+PT0990,18,17.1,-0.9,on track with chronological age,False
+PT0991,63,64.1,1.1,mildly accelerated aging,False
+PT0992,85,78.9,-6.1,excellent — aging well below calendar age,False
+PT0993,46,48.1,2.1,mildly accelerated aging,False
+PT0994,63,50.4,-12.6,excellent — aging well below calendar age,False
+PT0995,49,53.0,4.0,mildly accelerated aging,False
+PT0996,67,64.6,-2.4,good — physiologically younger than calendar age,False
+PT0997,41,43.9,2.9,mildly accelerated aging,False
+PT0998,41,40.2,-0.8,on track with chronological age,False
+PT0999,71,64.8,-6.2,excellent — aging well below calendar age,False
+PT1000,48,47.7,-0.3,on track with chronological age,False
